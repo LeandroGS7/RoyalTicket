@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import java.sql.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -49,6 +50,7 @@ public class Login extends javax.swing.JFrame {
         jCheckBox1 = new javax.swing.JCheckBox();
         btnIngreso = new javax.swing.JButton();
         txtClave = new javax.swing.JPasswordField();
+        btnIngreso1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,6 +86,7 @@ public class Login extends javax.swing.JFrame {
         jSeparator2.setForeground(new java.awt.Color(255, 204, 102));
         jSeparator2.setPreferredSize(new java.awt.Dimension(50, 20));
 
+        jCheckBox1.setBackground(new java.awt.Color(0, 0, 0));
         jCheckBox1.setForeground(new java.awt.Color(255, 204, 102));
         jCheckBox1.setText("Estoy de acuerdo con los terminos del servicio.");
 
@@ -99,15 +102,21 @@ public class Login extends javax.swing.JFrame {
         txtClave.setBackground(new java.awt.Color(0, 0, 0));
         txtClave.setForeground(new java.awt.Color(255, 204, 102));
         txtClave.setText("jPasswordField1");
+        txtClave.setBorder(null);
+
+        btnIngreso1.setBackground(new java.awt.Color(255, 102, 102));
+        btnIngreso1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        btnIngreso1.setText("SALIR");
+        btnIngreso1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngreso1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnIngreso)
-                .addGap(126, 126, 126))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,6 +130,15 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(txtClave, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(100, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnIngreso1)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnIngreso)
+                        .addGap(156, 156, 156))))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                     .addContainerGap(193, Short.MAX_VALUE)
@@ -144,14 +162,16 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jCheckBox1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnIngreso)
-                .addGap(69, 69, 69))
+                .addGap(56, 56, 56)
+                .addComponent(btnIngreso1)
+                .addGap(25, 25, 25))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(55, 55, 55)
                     .addComponent(jLabel2)
-                    .addContainerGap(443, Short.MAX_VALUE)))
+                    .addContainerGap(449, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -160,16 +180,15 @@ public class Login extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 462, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 267, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -179,10 +198,25 @@ public class Login extends javax.swing.JFrame {
         String sql = "SELECT * FROM Cuentas WHERE Usuario LIKE ? AND Clave LIKE ?;";
         try{
             pst = con.prepareStatement(sql);
-        }catch(Exception e){
+            pst.setString(1, txtUsuario.getText());
+            pst.setString(2, txtClave.getText());
+            rs = pst.executeQuery();
             
+            if(rs.next()){
+                JOptionPane.showMessageDialog(null, "Inicio de sesion exitoso");
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecto");
+            }
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecto");
         }
     }//GEN-LAST:event_btnIngresoActionPerformed
+
+    private void btnIngreso1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngreso1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnIngreso1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,6 +227,7 @@ public class Login extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngreso;
+    private javax.swing.JButton btnIngreso1;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
