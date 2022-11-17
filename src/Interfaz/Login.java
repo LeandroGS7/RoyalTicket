@@ -4,6 +4,7 @@
  */
 package Interfaz;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -72,6 +73,11 @@ public class Login extends javax.swing.JFrame {
         txtUsuario.setForeground(new java.awt.Color(255, 204, 102));
         txtUsuario.setText("Escriba su usuario");
         txtUsuario.setBorder(null);
+        txtUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtUsuarioMousePressed(evt);
+            }
+        });
 
         jSeparator1.setBackground(new java.awt.Color(255, 204, 102));
         jSeparator1.setForeground(new java.awt.Color(255, 204, 102));
@@ -103,6 +109,11 @@ public class Login extends javax.swing.JFrame {
         txtClave.setForeground(new java.awt.Color(255, 204, 102));
         txtClave.setText("jPasswordField1");
         txtClave.setBorder(null);
+        txtClave.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtClaveMousePressed(evt);
+            }
+        });
 
         btnIngreso1.setBackground(new java.awt.Color(255, 102, 102));
         btnIngreso1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
@@ -217,6 +228,18 @@ public class Login extends javax.swing.JFrame {
     private void btnIngreso1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngreso1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnIngreso1ActionPerformed
+
+    private void txtUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUsuarioMousePressed
+        txtUsuario.setText("");
+        txtUsuario.setForeground(Color.getHSBColor(255, 204, 102));
+        txtClave.setForeground(Color.getHSBColor(255, 204, 102));    
+    }//GEN-LAST:event_txtUsuarioMousePressed
+
+    private void txtClaveMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtClaveMousePressed
+        txtUsuario.setForeground(Color.getHSBColor(255, 204, 102));
+        txtClave.setText("");
+        txtClave.setForeground(Color.getHSBColor(255, 204, 102)); 
+    }//GEN-LAST:event_txtClaveMousePressed
 
     /**
      * @param args the command line arguments
