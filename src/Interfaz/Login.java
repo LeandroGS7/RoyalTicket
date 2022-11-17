@@ -215,6 +215,11 @@ public class Login extends javax.swing.JFrame {
             
             if(rs.next()){
                 JOptionPane.showMessageDialog(null, "Inicio de sesion exitoso");
+                java.awt.EventQueue.invokeLater(new Runnable() {
+                    public void run() {
+                        new MenuStaff().setVisible(true);
+                    }
+                });
             }
             else{
                 JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecto");
