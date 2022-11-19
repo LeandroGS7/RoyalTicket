@@ -224,6 +224,7 @@ public class Login extends javax.swing.JFrame {
             else{
                 JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecto");
             }
+            con.close();
             
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecto");

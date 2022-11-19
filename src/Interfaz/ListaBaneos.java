@@ -4,6 +4,11 @@
  */
 package Interfaz;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author leang
@@ -13,8 +18,16 @@ public class ListaBaneos extends javax.swing.JPanel {
     /**
      * Creates new form ListaBaneos
      */
+    Connection con = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+    
+    DefaultTableModel modelo;
+    
     public ListaBaneos() {
         initComponents();
+        con = DbConnection.ConnectionDB();
+        modelo = (DefaultTableModel) tableBaneos.getModel();
     }
 
     /**
@@ -27,22 +40,79 @@ public class ListaBaneos extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableBaneos = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        btnConsultarBaneo = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 204));
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("LISTA DE BANEOS");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, -1, -1));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(257, 257, 257)
+                .addComponent(jLabel1)
+                .addContainerGap(273, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        tableBaneos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Cedula"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tableBaneos);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 280, 230));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setText("Los siguientes usuarios fueron baneados debido a una conducta que incumplia las politicas org.");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 660, 30));
+
+        btnConsultarBaneo.setBackground(new java.awt.Color(255, 204, 102));
+        btnConsultarBaneo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnConsultarBaneo.setText("CONSULTAR");
+        btnConsultarBaneo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarBaneoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnConsultarBaneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -52,9 +122,32 @@ public class ListaBaneos extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnConsultarBaneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarBaneoActionPerformed
+        try{
+           String sql = "SELECT * FROM baneados;";
+           pst = con.prepareStatement(sql);
+           rs = pst.executeQuery();
+           
+           String datos[] = new String[2];
+            while(rs.next()) {
+                datos[0] = rs.getString(1);
+                datos[1] = rs.getString(2);
+                modelo.addRow(datos);
+            }
+           con.close();
+        }catch(Exception e){
+            System.out.println("Baneo fallido "+e);
+        }
+    }//GEN-LAST:event_btnConsultarBaneoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnConsultarBaneo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tableBaneos;
     // End of variables declaration//GEN-END:variables
 }

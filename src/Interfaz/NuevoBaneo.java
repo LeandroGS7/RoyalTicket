@@ -4,6 +4,9 @@
  */
 package Interfaz;
 
+
+import java.sql.*;
+
 /**
  *
  * @author leang
@@ -13,8 +16,14 @@ public class NuevoBaneo extends javax.swing.JPanel {
     /**
      * Creates new form NuevoBaneo
      */
+    
+    Connection con = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+    
     public NuevoBaneo() {
         initComponents();
+        con = DbConnection.ConnectionDB();
     }
 
     /**
@@ -37,14 +46,16 @@ public class NuevoBaneo extends javax.swing.JPanel {
         jSeparator2 = new javax.swing.JSeparator();
         txtCodigo = new javax.swing.JTextField();
         txtCedula = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        txtCedula1 = new javax.swing.JTextField();
+        txtCedulaBaneado = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
-        jLabel9 = new javax.swing.JLabel();
+        txtBaneo = new javax.swing.JLabel();
+        btnBanear = new javax.swing.JButton();
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Cepeda-1.jpg"))); // NOI18N
 
@@ -98,6 +109,10 @@ public class NuevoBaneo extends javax.swing.JPanel {
         txtCedula.setBorder(null);
         jPanel3.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 250, -1));
 
+        jButton1.setBackground(new java.awt.Color(255, 204, 102));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton1.setText("CLIENTE");
+
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 204));
@@ -127,11 +142,23 @@ public class NuevoBaneo extends javax.swing.JPanel {
         jLabel8.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
         jLabel8.setText("Cédula");
 
-        txtCedula1.setBorder(null);
+        txtCedulaBaneado.setBorder(null);
+        txtCedulaBaneado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCedulaBaneadoActionPerformed(evt);
+            }
+        });
 
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
 
-        jLabel9.setText("**** Mensaje luego de banear. *** Usuario x con cedula x fue baneado.");
+        btnBanear.setBackground(new java.awt.Color(255, 204, 102));
+        btnBanear.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBanear.setText("BANEAR");
+        btnBanear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBanearActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -144,9 +171,10 @@ public class NuevoBaneo extends javax.swing.JPanel {
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
-                    .addComponent(txtCedula1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCedulaBaneado, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBaneo, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBanear, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
@@ -160,11 +188,13 @@ public class NuevoBaneo extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtCedula1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCedulaBaneado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(btnBanear, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtBaneo, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
@@ -181,8 +211,29 @@ public class NuevoBaneo extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBanearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBanearActionPerformed
+        try{
+           String sql = "INSERT INTO baneados (cedula) VALUES (?);";
+           pst = con.prepareStatement(sql);
+           pst.setString(1, txtCedulaBaneado.getText());
+           pst.execute();
+           System.out.println("Baneo exitoso");
+           txtBaneo.setText("Baneo etcitoso.");
+           con.close();
+        }catch(Exception e){
+            System.out.println("Baneo fallido "+e);
+        }
+        
+    }//GEN-LAST:event_btnBanearActionPerformed
+
+    private void txtCedulaBaneadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaBaneadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedulaBaneadoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBanear;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -191,7 +242,6 @@ public class NuevoBaneo extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -199,8 +249,9 @@ public class NuevoBaneo extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JLabel txtBaneo;
     private javax.swing.JTextField txtCedula;
-    private javax.swing.JTextField txtCedula1;
+    private javax.swing.JTextField txtCedulaBaneado;
     private javax.swing.JTextField txtCodigo;
     // End of variables declaration//GEN-END:variables
 }
