@@ -241,8 +241,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUsuarioMousePressed
 
     private void txtClaveMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtClaveMousePressed
-        txtUsuario.setForeground(Color.getHSBColor(255, 204, 102));
         txtClave.setText("");
+        txtUsuario.setForeground(Color.getHSBColor(255, 204, 102));      
         txtClave.setForeground(Color.getHSBColor(255, 204, 102)); 
     }//GEN-LAST:event_txtClaveMousePressed
 

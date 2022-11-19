@@ -62,11 +62,21 @@ public class MenuStaff extends javax.swing.JFrame {
                 btnRegistrarEntradaMouseClicked(evt);
             }
         });
+        btnRegistrarEntrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarEntradaActionPerformed(evt);
+            }
+        });
 
         btnRegistrarEntrada1.setBackground(new java.awt.Color(102, 102, 102));
         btnRegistrarEntrada1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnRegistrarEntrada1.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrarEntrada1.setText("Lista Ingresados");
+        btnRegistrarEntrada1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarEntrada1ActionPerformed(evt);
+            }
+        });
 
         btnRegistrarEntrada2.setBackground(new java.awt.Color(102, 102, 102));
         btnRegistrarEntrada2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -82,6 +92,11 @@ public class MenuStaff extends javax.swing.JFrame {
         btnRegistrarEntrada3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnRegistrarEntrada3.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrarEntrada3.setText("Lista Baneos");
+        btnRegistrarEntrada3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarEntrada3ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -177,6 +192,21 @@ public class MenuStaff extends javax.swing.JFrame {
         ShowPanel(nv);
     }//GEN-LAST:event_btnRegistrarEntrada2MouseClicked
 
+    private void btnRegistrarEntrada3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarEntrada3ActionPerformed
+        ListaBaneos lb = new ListaBaneos();
+        ShowPanel(lb);
+    }//GEN-LAST:event_btnRegistrarEntrada3ActionPerformed
+
+    private void btnRegistrarEntrada1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarEntrada1ActionPerformed
+        ListaIngresados li = new ListaIngresados();
+        ShowPanel(li);
+    }//GEN-LAST:event_btnRegistrarEntrada1ActionPerformed
+
+    private void btnRegistrarEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarEntradaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarEntradaActionPerformed
+
+    
     /**
      * @param args the command line arguments
      */
