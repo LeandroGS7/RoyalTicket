@@ -23,7 +23,7 @@ public class NuevoBaneo extends javax.swing.JPanel {
     
     public NuevoBaneo() {
         initComponents();
-        con = DbConnection.ConnectionDB();
+        
     }
 
     /**
@@ -213,13 +213,14 @@ public class NuevoBaneo extends javax.swing.JPanel {
 
     private void btnBanearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBanearActionPerformed
         try{
-           String sql = "INSERT INTO baneados (cedula) VALUES (?);";
-           pst = con.prepareStatement(sql);
-           pst.setString(1, txtCedulaBaneado.getText());
-           pst.execute();
-           System.out.println("Baneo exitoso");
-           txtBaneo.setText("Baneo etcitoso.");
-           con.close();
+            con = DbConnection.ConnectionDB();
+            String sql = "INSERT INTO baneados (cedula) VALUES (?);";
+            pst = con.prepareStatement(sql);
+            pst.setString(1, txtCedulaBaneado.getText());
+            pst.execute();
+            System.out.println("Baneo exitoso");
+            txtBaneo.setText("Baneo etcitoso.");
+            con.close();
         }catch(Exception e){
             System.out.println("Baneo fallido "+e);
         }

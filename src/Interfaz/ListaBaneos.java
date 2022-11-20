@@ -26,7 +26,6 @@ public class ListaBaneos extends javax.swing.JPanel {
     
     public ListaBaneos() {
         initComponents();
-        con = DbConnection.ConnectionDB();
         modelo = (DefaultTableModel) tableBaneos.getModel();
     }
 
@@ -124,17 +123,19 @@ public class ListaBaneos extends javax.swing.JPanel {
 
     private void btnConsultarBaneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarBaneoActionPerformed
         try{
-           String sql = "SELECT * FROM baneados;";
-           pst = con.prepareStatement(sql);
-           rs = pst.executeQuery();
-           
-           String datos[] = new String[2];
-            while(rs.next()) {
-                datos[0] = rs.getString(1);
-                datos[1] = rs.getString(2);
-                modelo.addRow(datos);
-            }
-           con.close();
+            modelo.setRowCount(0);
+            con = DbConnection.ConnectionDB();
+            String sql = "SELECT * FROM baneados;";
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+
+            String datos[] = new String[2];
+             while(rs.next()) {
+                 datos[0] = rs.getString(1);
+                 datos[1] = rs.getString(2);
+                 modelo.addRow(datos);
+             }
+            con.close();
         }catch(Exception e){
             System.out.println("Baneo fallido "+e);
         }
