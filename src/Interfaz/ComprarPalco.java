@@ -227,7 +227,7 @@ public class ComprarPalco extends javax.swing.JPanel {
                 pst.setString(4, txtTelefonoCompraPalco.getText());
                 pst.setString(4, txtCodigoCompraPalco.getText());
                 pst.setString(4, txtCodigoCompraPalco.getText());
-            
+              //prueba
                 pst.execute();
                 con.close();
                 JOptionPane.showMessageDialog(null, "Codigo de palco incorrecto o no disponible.");
