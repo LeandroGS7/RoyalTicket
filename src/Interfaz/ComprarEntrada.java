@@ -5,6 +5,7 @@
 package Interfaz;
 
 import java.sql.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Cris Hernandez
@@ -177,20 +178,48 @@ public class ComprarEntrada extends javax.swing.JPanel {
     private void btnComprarEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarEntradaActionPerformed
         try{
             con = DbConnection.ConnectionDB();
-            String sql = "INSERT INTO entradaBasica (cedula, telefono, email, nombre, zona) VALUES (?,?,?,?,?);";
+            String sql = "INSERT INTO entradaBasica (cedula, telefono, email, nombre, zona, codigo) VALUES (?,?,?,?,?,?);";
             pst = con.prepareStatement(sql);
             pst.setString(1, txtCedulaCompraEntrada.getText());
             pst.setString(2, txtTelefonoCompraEntrada.getText());
             pst.setString(3, txtEmailCompraEntrada.getText()); 
             pst.setString(4, txtNombreCompraEntrada.getText());
             pst.setString(5, jComboBoxZona.getSelectedItem().toString());
+            String codigoReserva = generarCodigoReserva(5);
+            pst.setString(6, codigoReserva);
             pst.execute();
+            JOptionPane.showMessageDialog(null, "Compra Exitosa, Su codigo de reserva es: "+codigoReserva);
             con.close();
         }catch(Exception e){
             System.out.println("Baneo fallido "+e);
         }
 
     }//GEN-LAST:event_btnComprarEntradaActionPerformed
+
+    // Java program generate a random AlphaNumeric String
+// using Math.random() method
+
+    static String generarCodigoReserva(int n){
+
+        // chose a Character random from this String
+        String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "0123456789";
+
+        // create StringBuffer size of AlphaNumericString
+        StringBuilder sb = new StringBuilder(n);
+
+        for (int i = 0; i < n; i++) {
+
+            // generate a random number between
+            // 0 to AlphaNumericString variable length
+            int index = (int)(AlphaNumericString.length()* Math.random());
+
+            // add Character one by one in end of sb
+            sb.append(AlphaNumericString.charAt(index));
+        }
+
+        return sb.toString();
+        
+    }
 
     private void txtEmailCompraEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailCompraEntradaActionPerformed
         // TODO add your handling code here:

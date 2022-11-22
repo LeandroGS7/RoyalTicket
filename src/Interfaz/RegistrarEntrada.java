@@ -4,12 +4,17 @@
  */
 package Interfaz;
 
+import java.sql.*;
 /**
  *
  * @author leang
  */
 public class RegistrarEntrada extends javax.swing.JPanel {
 
+    
+    Connection con = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
     /**
      * Creates new form RegistrarEntrada
      */
@@ -36,6 +41,7 @@ public class RegistrarEntrada extends javax.swing.JPanel {
         jSeparator2 = new javax.swing.JSeparator();
         txtCodigo = new javax.swing.JTextField();
         txtCedula = new javax.swing.JTextField();
+        btnRegistrarEntrada = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -87,6 +93,16 @@ public class RegistrarEntrada extends javax.swing.JPanel {
         txtCedula.setBorder(null);
         jPanel1.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 250, -1));
 
+        btnRegistrarEntrada.setBackground(new java.awt.Color(255, 204, 102));
+        btnRegistrarEntrada.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnRegistrarEntrada.setText("Registrar Entrada");
+        btnRegistrarEntrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarEntradaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnRegistrarEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 190, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -103,8 +119,29 @@ public class RegistrarEntrada extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnRegistrarEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarEntradaActionPerformed
+        try{
+            modelo.setRowCount(0);
+            con = DbConnection.ConnectionDB();
+            String sql = "SELECT * FROM baneados;";
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+
+            String datos[] = new String[2];
+            while(rs.next()) {
+                datos[0] = rs.getString(1);
+                datos[1] = rs.getString(2);
+                modelo.addRow(datos);
+            }
+            con.close();
+        }catch(Exception e){
+            System.out.println("Baneo fallido "+e);
+        }
+    }//GEN-LAST:event_btnRegistrarEntradaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnRegistrarEntrada;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
