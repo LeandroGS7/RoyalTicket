@@ -33,6 +33,8 @@ public class ComprarEntrada extends javax.swing.JPanel {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jComboBoxZona = new javax.swing.JComboBox<>();
         labelCedula = new javax.swing.JLabel();
         txtCedulaCompraEntrada = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
@@ -55,23 +57,40 @@ public class ComprarEntrada extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(204, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Comprar Entrada General");
+        jLabel1.setText("ZONA:");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setText("Comprar Entrada General");
+
+        jComboBoxZona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Efecto", "Moscow Mule", "Un coco", "Neverita" }));
+        jComboBoxZona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxZonaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(225, 225, 225)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(250, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jComboBoxZona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(139, 139, 139))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel1)
-                .addContainerGap(28, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3)
+                    .addComponent(jComboBoxZona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16))
         );
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, -1));
@@ -158,12 +177,13 @@ public class ComprarEntrada extends javax.swing.JPanel {
     private void btnComprarEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarEntradaActionPerformed
         try{
             con = DbConnection.ConnectionDB();
-            String sql = "INSERT INTO entradas (cedula, email, telefono, nombre) VALUES (?,?,?,?);";
+            String sql = "INSERT INTO entradaBasica (cedula, telefono, email, nombre, zona) VALUES (?,?,?,?,?);";
             pst = con.prepareStatement(sql);
             pst.setString(1, txtCedulaCompraEntrada.getText());
-            pst.setString(2, txtEmailCompraEntrada.getText());
-            pst.setString(3, txtTelefonoCompraEntrada.getText());
+            pst.setString(2, txtTelefonoCompraEntrada.getText());
+            pst.setString(3, txtEmailCompraEntrada.getText()); 
             pst.setString(4, txtNombreCompraEntrada.getText());
+            pst.setString(5, jComboBoxZona.getSelectedItem().toString());
             pst.execute();
             con.close();
         }catch(Exception e){
@@ -184,13 +204,19 @@ public class ComprarEntrada extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreCompraEntradaActionPerformed
 
+    private void jComboBoxZonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxZonaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxZonaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnComprarEntrada;
+    private javax.swing.JComboBox<String> jComboBoxZona;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator3;
