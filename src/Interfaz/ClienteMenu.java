@@ -33,7 +33,6 @@ public class ClienteMenu extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         btnRegistrarEntrada = new javax.swing.JButton();
         btnRegistrarEntrada2 = new javax.swing.JButton();
-        btnRegistrarEntrada3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jPanel2 = new javax.swing.JPanel();
@@ -76,16 +75,6 @@ public class ClienteMenu extends javax.swing.JFrame {
             }
         });
 
-        btnRegistrarEntrada3.setBackground(new java.awt.Color(0, 102, 102));
-        btnRegistrarEntrada3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnRegistrarEntrada3.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegistrarEntrada3.setText("Comprar Zona");
-        btnRegistrarEntrada3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarEntrada3ActionPerformed(evt);
-            }
-        });
-
         jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("RoyalTicket");
@@ -96,7 +85,6 @@ public class ClienteMenu extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnRegistrarEntrada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnRegistrarEntrada2, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-            .addComponent(btnRegistrarEntrada3, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -115,9 +103,7 @@ public class ClienteMenu extends javax.swing.JFrame {
                 .addComponent(btnRegistrarEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRegistrarEntrada2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
-                .addComponent(btnRegistrarEntrada3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(267, Short.MAX_VALUE))
+                .addContainerGap(308, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 540));
@@ -181,11 +167,6 @@ public class ClienteMenu extends javax.swing.JFrame {
         //ShowPanel(nv);
     }//GEN-LAST:event_btnRegistrarEntrada2MouseClicked
 
-    private void btnRegistrarEntrada3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarEntrada3ActionPerformed
-        //ListaBaneos lb = new ListaBaneos();
-        //ShowPanel(lb);
-    }//GEN-LAST:event_btnRegistrarEntrada3ActionPerformed
-
     private void btnRegistrarEntrada2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarEntrada2ActionPerformed
         ComprarPalco palcos = new ComprarPalco();
         ShowPanel(palcos);
@@ -238,7 +219,6 @@ public class ClienteMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrarEntrada;
     private javax.swing.JButton btnRegistrarEntrada2;
-    private javax.swing.JButton btnRegistrarEntrada3;
     private javax.swing.JPanel content2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
