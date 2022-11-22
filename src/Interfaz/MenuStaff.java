@@ -16,12 +16,8 @@ public class MenuStaff extends javax.swing.JFrame {
     /**
      * Creates new form MenuStaff
      */
-    public MenuStaff() {
-        
-        initComponents();
-        
-        
-        
+    public MenuStaff() {      
+        initComponents();  
     }
 
     /**
@@ -105,6 +101,11 @@ public class MenuStaff extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(255, 204, 102));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setText("CLIENTE");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -205,6 +206,12 @@ public class MenuStaff extends javax.swing.JFrame {
     private void btnRegistrarEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarEntradaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrarEntradaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ClienteMenu menuCliente = new ClienteMenu();
+        menuCliente.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     
     /**
