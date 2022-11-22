@@ -4,6 +4,11 @@
  */
 package Interfaz;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author leang
@@ -13,6 +18,11 @@ public class ComprarPalco extends javax.swing.JPanel {
     /**
      * Creates new form ComprarPalco
      */
+    
+    Connection con = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+    /**
     public ComprarPalco() {
         initComponents();
     }
@@ -30,21 +40,22 @@ public class ComprarPalco extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         labelCedula = new javax.swing.JLabel();
-        txtCedulaCompraEntrada = new javax.swing.JTextField();
+        txtCedulaCompraPalco = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel9 = new javax.swing.JLabel();
-        txtEmailCompraEntrada = new javax.swing.JTextField();
+        txtEmailCompraPalco = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        txtTelefonoCompraEntrada = new javax.swing.JTextField();
+        txtTelefonoCompraPalco = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        txtNombreCompraEntrada = new javax.swing.JTextField();
+        txtNombreCompraPalco = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
         jLabel12 = new javax.swing.JLabel();
-        txtEmailCompraEntrada1 = new javax.swing.JTextField();
+        txtCodigoCompraPalco = new javax.swing.JTextField();
         jSeparator7 = new javax.swing.JSeparator();
-        jButton1 = new javax.swing.JButton();
+        btnComprarPalco = new javax.swing.JButton();
+        btnVerPalcos = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -77,13 +88,13 @@ public class ComprarPalco extends javax.swing.JPanel {
         labelCedula.setText("Cédula");
         jPanel1.add(labelCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
 
-        txtCedulaCompraEntrada.setBorder(null);
-        txtCedulaCompraEntrada.addActionListener(new java.awt.event.ActionListener() {
+        txtCedulaCompraPalco.setBorder(null);
+        txtCedulaCompraPalco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCedulaCompraEntradaActionPerformed(evt);
+                txtCedulaCompraPalcoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtCedulaCompraEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 180, -1));
+        jPanel1.add(txtCedulaCompraPalco, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 180, -1));
 
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 210, 20));
@@ -92,37 +103,37 @@ public class ComprarPalco extends javax.swing.JPanel {
         jLabel9.setText("Email");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
 
-        txtEmailCompraEntrada.setBorder(null);
-        txtEmailCompraEntrada.addActionListener(new java.awt.event.ActionListener() {
+        txtEmailCompraPalco.setBorder(null);
+        txtEmailCompraPalco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmailCompraEntradaActionPerformed(evt);
+                txtEmailCompraPalcoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtEmailCompraEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 180, -1));
+        jPanel1.add(txtEmailCompraPalco, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 180, -1));
 
         jLabel10.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
         jLabel10.setText("Telefono");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, -1, -1));
 
-        txtTelefonoCompraEntrada.setBorder(null);
-        txtTelefonoCompraEntrada.addActionListener(new java.awt.event.ActionListener() {
+        txtTelefonoCompraPalco.setBorder(null);
+        txtTelefonoCompraPalco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelefonoCompraEntradaActionPerformed(evt);
+                txtTelefonoCompraPalcoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtTelefonoCompraEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 140, -1));
+        jPanel1.add(txtTelefonoCompraPalco, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 140, -1));
 
         jLabel11.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
         jLabel11.setText("Nombre Completo");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, -1, -1));
 
-        txtNombreCompraEntrada.setBorder(null);
-        txtNombreCompraEntrada.addActionListener(new java.awt.event.ActionListener() {
+        txtNombreCompraPalco.setBorder(null);
+        txtNombreCompraPalco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreCompraEntradaActionPerformed(evt);
+                txtNombreCompraPalcoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtNombreCompraEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 200, -1));
+        jPanel1.add(txtNombreCompraPalco, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 200, -1));
 
         jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 180, 20));
@@ -137,26 +148,36 @@ public class ComprarPalco extends javax.swing.JPanel {
         jLabel12.setText("Código de palco");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
 
-        txtEmailCompraEntrada1.setBorder(null);
-        txtEmailCompraEntrada1.addActionListener(new java.awt.event.ActionListener() {
+        txtCodigoCompraPalco.setBorder(null);
+        txtCodigoCompraPalco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmailCompraEntrada1ActionPerformed(evt);
+                txtCodigoCompraPalcoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtEmailCompraEntrada1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 180, -1));
+        jPanel1.add(txtCodigoCompraPalco, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 90, -1));
 
         jSeparator7.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 180, 20));
 
-        jButton1.setBackground(new java.awt.Color(204, 255, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setText("VER PALCOS");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnComprarPalco.setBackground(new java.awt.Color(204, 255, 255));
+        btnComprarPalco.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnComprarPalco.setText("COMPRAR");
+        btnComprarPalco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnComprarPalcoActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 120, 50));
+        jPanel1.add(btnComprarPalco, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, 120, 50));
+
+        btnVerPalcos.setBackground(new java.awt.Color(204, 255, 255));
+        btnVerPalcos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnVerPalcos.setText("VER PALCOS");
+        btnVerPalcos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerPalcosActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnVerPalcos, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, 120, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -170,34 +191,63 @@ public class ComprarPalco extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtCedulaCompraEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaCompraEntradaActionPerformed
+    private void txtCedulaCompraPalcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaCompraPalcoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCedulaCompraEntradaActionPerformed
+    }//GEN-LAST:event_txtCedulaCompraPalcoActionPerformed
 
-    private void txtEmailCompraEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailCompraEntradaActionPerformed
+    private void txtEmailCompraPalcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailCompraPalcoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmailCompraEntradaActionPerformed
+    }//GEN-LAST:event_txtEmailCompraPalcoActionPerformed
 
-    private void txtTelefonoCompraEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoCompraEntradaActionPerformed
+    private void txtTelefonoCompraPalcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoCompraPalcoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefonoCompraEntradaActionPerformed
+    }//GEN-LAST:event_txtTelefonoCompraPalcoActionPerformed
 
-    private void txtNombreCompraEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreCompraEntradaActionPerformed
+    private void txtNombreCompraPalcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreCompraPalcoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreCompraEntradaActionPerformed
+    }//GEN-LAST:event_txtNombreCompraPalcoActionPerformed
 
-    private void txtEmailCompraEntrada1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailCompraEntrada1ActionPerformed
+    private void txtCodigoCompraPalcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoCompraPalcoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmailCompraEntrada1ActionPerformed
+    }//GEN-LAST:event_txtCodigoCompraPalcoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnComprarPalcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarPalcoActionPerformed
+        String sql = "SELECT * FROM palcos WHERE codigoPalco LIKE ?;";
+        try{
+            pst = con.prepareStatement(sql);
+            pst.setString(1, txtCodigoCompraPalco.getText());
+            rs = pst.executeQuery();
+            
+            if(rs.next()){
+                String sql2 = "INSERT INTO entradasPalcos (nombre,cedula,email,telefono,codigoPalco,nombrePalco) VALUES (?,?,?,?,?,?);";
+                pst = con.prepareStatement(sql2);
+                pst.setString(1, txtNombreCompraPalco.getText());
+                pst.setString(2, txtCedulaCompraPalco.getText());
+                pst.setString(3, txtEmailCompraPalco.getText());
+                pst.setString(4, txtTelefonoCompraPalco.getText());
+                pst.setString(4, txtCodigoCompraPalco.getText());
+                pst.setString(4, txtCodigoCompraPalco.getText());
+              //prueba
+                pst.execute();
+                con.close();
+                JOptionPane.showMessageDialog(null, "Codigo de palco incorrecto o no disponible.");
+            }else{
+                JOptionPane.showMessageDialog(null, "Codigo de palco incorrecto o no disponible.");
+            }
+        }catch(Exception e){
+            System.out.println("Codigo de palco incorrecto o no disponible. "+e);
+        }
+    }//GEN-LAST:event_btnComprarPalcoActionPerformed
+
+    private void btnVerPalcosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerPalcosActionPerformed
         Palcos palcos = new Palcos();
         palcos.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnVerPalcosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnComprarPalco;
+    private javax.swing.JButton btnVerPalcos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -211,10 +261,10 @@ public class ComprarPalco extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JLabel labelCedula;
-    private javax.swing.JTextField txtCedulaCompraEntrada;
-    private javax.swing.JTextField txtEmailCompraEntrada;
-    private javax.swing.JTextField txtEmailCompraEntrada1;
-    private javax.swing.JTextField txtNombreCompraEntrada;
-    private javax.swing.JTextField txtTelefonoCompraEntrada;
+    private javax.swing.JTextField txtCedulaCompraPalco;
+    private javax.swing.JTextField txtCodigoCompraPalco;
+    private javax.swing.JTextField txtEmailCompraPalco;
+    private javax.swing.JTextField txtNombreCompraPalco;
+    private javax.swing.JTextField txtTelefonoCompraPalco;
     // End of variables declaration//GEN-END:variables
 }

@@ -95,6 +95,21 @@ public class Palcos extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
         btnIngreso1 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -124,7 +139,7 @@ public class Palcos extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 140, 50));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 140, 50));
 
         jPanel3.setBackground(new java.awt.Color(102, 0, 102));
 
@@ -139,7 +154,7 @@ public class Palcos extends javax.swing.JFrame {
             .addGap(0, 20, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 520, 20));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 520, 20));
 
         jButton2.setBackground(new java.awt.Color(255, 51, 51));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -155,13 +170,13 @@ public class Palcos extends javax.swing.JFrame {
         jButton25.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton25.setForeground(new java.awt.Color(255, 255, 255));
         jButton25.setText("L");
-        jPanel1.add(jButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 70, 40));
+        jPanel1.add(jButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 70, 40));
 
         jButton42.setBackground(new java.awt.Color(102, 102, 102));
         jButton42.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton42.setForeground(new java.awt.Color(255, 255, 255));
         jButton42.setText("L");
-        jPanel1.add(jButton42, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 70, 40));
+        jPanel1.add(jButton42, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 70, 40));
 
         jButton53.setBackground(new java.awt.Color(255, 51, 51));
         jButton53.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -172,7 +187,7 @@ public class Palcos extends javax.swing.JFrame {
                 jButton53ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton53, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 70, 40));
+        jPanel1.add(jButton53, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 70, 40));
 
         jButton54.setBackground(new java.awt.Color(255, 51, 51));
         jButton54.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -183,7 +198,7 @@ public class Palcos extends javax.swing.JFrame {
                 jButton54ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton54, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 70, 40));
+        jPanel1.add(jButton54, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 70, 40));
 
         jButton57.setBackground(new java.awt.Color(255, 51, 51));
         jButton57.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -194,7 +209,7 @@ public class Palcos extends javax.swing.JFrame {
                 jButton57ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton57, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 70, 40));
+        jPanel1.add(jButton57, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 70, 40));
 
         jButton58.setBackground(new java.awt.Color(255, 51, 51));
         jButton58.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -205,7 +220,7 @@ public class Palcos extends javax.swing.JFrame {
                 jButton58ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton58, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 70, 40));
+        jPanel1.add(jButton58, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 70, 40));
 
         jButton59.setBackground(new java.awt.Color(255, 51, 51));
         jButton59.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -216,7 +231,7 @@ public class Palcos extends javax.swing.JFrame {
                 jButton59ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton59, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 70, 40));
+        jPanel1.add(jButton59, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 70, 40));
 
         jButton60.setBackground(new java.awt.Color(255, 51, 51));
         jButton60.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -227,7 +242,7 @@ public class Palcos extends javax.swing.JFrame {
                 jButton60ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton60, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, 70, 40));
+        jPanel1.add(jButton60, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, 70, 40));
 
         jButton61.setBackground(new java.awt.Color(255, 51, 51));
         jButton61.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -238,7 +253,7 @@ public class Palcos extends javax.swing.JFrame {
                 jButton61ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton61, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 70, 40));
+        jPanel1.add(jButton61, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, 70, 40));
 
         jButton62.setBackground(new java.awt.Color(255, 51, 51));
         jButton62.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -249,7 +264,7 @@ public class Palcos extends javax.swing.JFrame {
                 jButton62ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton62, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 70, 40));
+        jPanel1.add(jButton62, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, 70, 40));
 
         jButton63.setBackground(new java.awt.Color(255, 51, 51));
         jButton63.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -260,7 +275,7 @@ public class Palcos extends javax.swing.JFrame {
                 jButton63ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton63, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 170, 70, 40));
+        jPanel1.add(jButton63, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 150, 70, 40));
 
         jButton64.setBackground(new java.awt.Color(0, 204, 255));
         jButton64.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -271,7 +286,7 @@ public class Palcos extends javax.swing.JFrame {
                 jButton64ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton64, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, 70, 40));
+        jPanel1.add(jButton64, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 70, 40));
 
         jButton66.setBackground(new java.awt.Color(0, 204, 255));
         jButton66.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -282,7 +297,7 @@ public class Palcos extends javax.swing.JFrame {
                 jButton66ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton66, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 70, 40));
+        jPanel1.add(jButton66, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 70, 40));
 
         jButton67.setBackground(new java.awt.Color(0, 204, 255));
         jButton67.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -293,7 +308,7 @@ public class Palcos extends javax.swing.JFrame {
                 jButton67ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton67, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 70, 40));
+        jPanel1.add(jButton67, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 70, 40));
 
         jButton68.setBackground(new java.awt.Color(0, 204, 255));
         jButton68.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -304,7 +319,7 @@ public class Palcos extends javax.swing.JFrame {
                 jButton68ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton68, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, 70, 40));
+        jPanel1.add(jButton68, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 70, 40));
 
         jButton69.setBackground(new java.awt.Color(0, 204, 255));
         jButton69.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -315,7 +330,7 @@ public class Palcos extends javax.swing.JFrame {
                 jButton69ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton69, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 70, 40));
+        jPanel1.add(jButton69, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 70, 40));
 
         jButton70.setBackground(new java.awt.Color(0, 204, 255));
         jButton70.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -326,7 +341,7 @@ public class Palcos extends javax.swing.JFrame {
                 jButton70ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton70, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 70, 40));
+        jPanel1.add(jButton70, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 70, 40));
 
         jButton3.setBackground(new java.awt.Color(255, 51, 51));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -337,7 +352,7 @@ public class Palcos extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 220, 70, 40));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 200, 70, 40));
 
         jButton71.setBackground(new java.awt.Color(255, 51, 51));
         jButton71.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -348,7 +363,7 @@ public class Palcos extends javax.swing.JFrame {
                 jButton71ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton71, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 70, 40));
+        jPanel1.add(jButton71, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 70, 40));
 
         jButton72.setBackground(new java.awt.Color(255, 51, 51));
         jButton72.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -359,7 +374,7 @@ public class Palcos extends javax.swing.JFrame {
                 jButton72ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton72, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 70, 40));
+        jPanel1.add(jButton72, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 70, 40));
 
         jButton73.setBackground(new java.awt.Color(255, 51, 51));
         jButton73.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -370,7 +385,7 @@ public class Palcos extends javax.swing.JFrame {
                 jButton73ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton73, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 70, 40));
+        jPanel1.add(jButton73, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 70, 40));
 
         jButton74.setBackground(new java.awt.Color(255, 51, 51));
         jButton74.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -381,7 +396,7 @@ public class Palcos extends javax.swing.JFrame {
                 jButton74ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton74, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, 70, 40));
+        jPanel1.add(jButton74, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 70, 40));
 
         jButton75.setBackground(new java.awt.Color(255, 51, 51));
         jButton75.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -392,7 +407,7 @@ public class Palcos extends javax.swing.JFrame {
                 jButton75ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton75, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 220, 70, 40));
+        jPanel1.add(jButton75, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, 70, 40));
 
         jButton77.setBackground(new java.awt.Color(255, 51, 51));
         jButton77.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -403,7 +418,7 @@ public class Palcos extends javax.swing.JFrame {
                 jButton77ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton77, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 70, 40));
+        jPanel1.add(jButton77, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 70, 40));
 
         jButton76.setBackground(new java.awt.Color(255, 51, 51));
         jButton76.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -414,175 +429,175 @@ public class Palcos extends javax.swing.JFrame {
                 jButton76ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton76, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 70, 40));
+        jPanel1.add(jButton76, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 70, 40));
 
         jButton65.setBackground(new java.awt.Color(255, 102, 204));
         jButton65.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton65.setForeground(new java.awt.Color(255, 255, 255));
         jButton65.setText("L");
-        jPanel1.add(jButton65, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 70, 40));
+        jPanel1.add(jButton65, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 70, 40));
 
         jButton78.setBackground(new java.awt.Color(255, 102, 204));
         jButton78.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton78.setForeground(new java.awt.Color(255, 255, 255));
         jButton78.setText("L");
-        jPanel1.add(jButton78, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, 70, 40));
+        jPanel1.add(jButton78, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 70, 40));
 
         jButton79.setBackground(new java.awt.Color(255, 102, 204));
         jButton79.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton79.setForeground(new java.awt.Color(255, 255, 255));
         jButton79.setText("L");
-        jPanel1.add(jButton79, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 70, 40));
+        jPanel1.add(jButton79, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 70, 40));
 
         jButton26.setBackground(new java.awt.Color(255, 102, 204));
         jButton26.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton26.setForeground(new java.awt.Color(255, 255, 255));
         jButton26.setText("L");
-        jPanel1.add(jButton26, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 70, 40));
+        jPanel1.add(jButton26, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, 70, 40));
 
         jButton80.setBackground(new java.awt.Color(255, 102, 204));
         jButton80.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton80.setForeground(new java.awt.Color(255, 255, 255));
         jButton80.setText("L");
-        jPanel1.add(jButton80, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, 70, 40));
+        jPanel1.add(jButton80, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 70, 40));
 
         jButton81.setBackground(new java.awt.Color(255, 102, 204));
         jButton81.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton81.setForeground(new java.awt.Color(255, 255, 255));
         jButton81.setText("L");
-        jPanel1.add(jButton81, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 280, 70, 40));
+        jPanel1.add(jButton81, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 260, 70, 40));
 
         jButton82.setBackground(new java.awt.Color(255, 102, 204));
         jButton82.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton82.setForeground(new java.awt.Color(255, 255, 255));
         jButton82.setText("L");
-        jPanel1.add(jButton82, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 280, 70, 40));
+        jPanel1.add(jButton82, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 260, 70, 40));
 
         jButton27.setBackground(new java.awt.Color(255, 102, 204));
         jButton27.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton27.setForeground(new java.awt.Color(255, 255, 255));
         jButton27.setText("L");
-        jPanel1.add(jButton27, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 70, 40));
+        jPanel1.add(jButton27, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 70, 40));
 
         jButton83.setBackground(new java.awt.Color(255, 102, 204));
         jButton83.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton83.setForeground(new java.awt.Color(255, 255, 255));
         jButton83.setText("L");
-        jPanel1.add(jButton83, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 70, 40));
+        jPanel1.add(jButton83, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 70, 40));
 
         jButton84.setBackground(new java.awt.Color(255, 102, 204));
         jButton84.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton84.setForeground(new java.awt.Color(255, 255, 255));
         jButton84.setText("L");
-        jPanel1.add(jButton84, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 70, 40));
+        jPanel1.add(jButton84, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 70, 40));
 
         jButton85.setBackground(new java.awt.Color(255, 102, 204));
         jButton85.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton85.setForeground(new java.awt.Color(255, 255, 255));
         jButton85.setText("L");
-        jPanel1.add(jButton85, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 70, 40));
+        jPanel1.add(jButton85, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 70, 40));
 
         jButton28.setBackground(new java.awt.Color(255, 102, 204));
         jButton28.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton28.setForeground(new java.awt.Color(255, 255, 255));
         jButton28.setText("L");
-        jPanel1.add(jButton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, 70, 40));
+        jPanel1.add(jButton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 310, 70, 40));
 
         jButton86.setBackground(new java.awt.Color(255, 102, 204));
         jButton86.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton86.setForeground(new java.awt.Color(255, 255, 255));
         jButton86.setText("L");
-        jPanel1.add(jButton86, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, 70, 40));
+        jPanel1.add(jButton86, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, 70, 40));
 
         jButton87.setBackground(new java.awt.Color(255, 102, 204));
         jButton87.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton87.setForeground(new java.awt.Color(255, 255, 255));
         jButton87.setText("L");
-        jPanel1.add(jButton87, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 330, 70, 40));
+        jPanel1.add(jButton87, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 310, 70, 40));
 
         jButton88.setBackground(new java.awt.Color(255, 102, 204));
         jButton88.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton88.setForeground(new java.awt.Color(255, 255, 255));
         jButton88.setText("L");
-        jPanel1.add(jButton88, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 330, 70, 40));
+        jPanel1.add(jButton88, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 310, 70, 40));
 
         jButton89.setBackground(new java.awt.Color(102, 102, 102));
         jButton89.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton89.setForeground(new java.awt.Color(255, 255, 255));
         jButton89.setText("L");
-        jPanel1.add(jButton89, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 70, 40));
+        jPanel1.add(jButton89, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 70, 40));
 
         jButton90.setBackground(new java.awt.Color(102, 102, 102));
         jButton90.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton90.setForeground(new java.awt.Color(255, 255, 255));
         jButton90.setText("L");
-        jPanel1.add(jButton90, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, 70, 40));
+        jPanel1.add(jButton90, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, 70, 40));
 
         jButton91.setBackground(new java.awt.Color(102, 102, 102));
         jButton91.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton91.setForeground(new java.awt.Color(255, 255, 255));
         jButton91.setText("L");
-        jPanel1.add(jButton91, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, 70, 40));
+        jPanel1.add(jButton91, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, 70, 40));
 
         jButton92.setBackground(new java.awt.Color(102, 102, 102));
         jButton92.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton92.setForeground(new java.awt.Color(255, 255, 255));
         jButton92.setText("L");
-        jPanel1.add(jButton92, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 390, 70, 40));
+        jPanel1.add(jButton92, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, 70, 40));
 
         jButton93.setBackground(new java.awt.Color(102, 102, 102));
         jButton93.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton93.setForeground(new java.awt.Color(255, 255, 255));
         jButton93.setText("L");
-        jPanel1.add(jButton93, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 390, 70, 40));
+        jPanel1.add(jButton93, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, 70, 40));
 
         jButton94.setBackground(new java.awt.Color(102, 102, 102));
         jButton94.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton94.setForeground(new java.awt.Color(255, 255, 255));
         jButton94.setText("L");
-        jPanel1.add(jButton94, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 440, 70, 40));
+        jPanel1.add(jButton94, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 420, 70, 40));
 
         jButton95.setBackground(new java.awt.Color(102, 102, 102));
         jButton95.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton95.setForeground(new java.awt.Color(255, 255, 255));
         jButton95.setText("L");
-        jPanel1.add(jButton95, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 390, 70, 40));
+        jPanel1.add(jButton95, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 370, 70, 40));
 
         jButton96.setBackground(new java.awt.Color(102, 102, 102));
         jButton96.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton96.setForeground(new java.awt.Color(255, 255, 255));
         jButton96.setText("L");
-        jPanel1.add(jButton96, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 440, 70, 40));
+        jPanel1.add(jButton96, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, 70, 40));
 
         jButton97.setBackground(new java.awt.Color(102, 102, 102));
         jButton97.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton97.setForeground(new java.awt.Color(255, 255, 255));
         jButton97.setText("L");
-        jPanel1.add(jButton97, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 70, 40));
+        jPanel1.add(jButton97, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, 70, 40));
 
         jButton98.setBackground(new java.awt.Color(102, 102, 102));
         jButton98.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton98.setForeground(new java.awt.Color(255, 255, 255));
         jButton98.setText("L");
-        jPanel1.add(jButton98, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 440, 70, 40));
+        jPanel1.add(jButton98, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 70, 40));
 
         jButton99.setBackground(new java.awt.Color(102, 102, 102));
         jButton99.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton99.setForeground(new java.awt.Color(255, 255, 255));
         jButton99.setText("L");
-        jPanel1.add(jButton99, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 440, 70, 40));
+        jPanel1.add(jButton99, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 420, 70, 40));
 
         jButton101.setBackground(new java.awt.Color(102, 102, 102));
         jButton101.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton101.setForeground(new java.awt.Color(255, 255, 255));
         jButton101.setText("L");
-        jPanel1.add(jButton101, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 440, 70, 40));
+        jPanel1.add(jButton101, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 420, 70, 40));
 
         jButton102.setBackground(new java.awt.Color(102, 102, 102));
         jButton102.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton102.setForeground(new java.awt.Color(255, 255, 255));
         jButton102.setText("L");
-        jPanel1.add(jButton102, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 390, 70, 40));
+        jPanel1.add(jButton102, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 370, 70, 40));
 
         jPanel4.setBackground(new java.awt.Color(102, 0, 102));
 
@@ -611,7 +626,7 @@ public class Palcos extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, 70, 40));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 100, 70, 40));
 
         jLabel3.setText("Invitados Especiales");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 110, -1, -1));
@@ -665,6 +680,66 @@ public class Palcos extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnIngreso1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 410, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel7.setText("G");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 10, -1));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setText("8");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 80, 10, -1));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel9.setText("B");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 10, -1));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel10.setText("C");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 10, -1));
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel11.setText("D");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 10, -1));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel12.setText("E");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 10, -1));
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel13.setText("F");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 10, -1));
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel14.setText("A");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 10, -1));
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel15.setText("1");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 10, -1));
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel16.setText("2");
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 10, -1));
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel17.setText("3");
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 10, -1));
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel18.setText("4");
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 10, -1));
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel19.setText("5");
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 10, -1));
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel20.setText("6");
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, 10, -1));
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel21.setText("7");
+        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, 10, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -892,11 +967,26 @@ public class Palcos extends javax.swing.JFrame {
     private javax.swing.JButton jButton98;
     private javax.swing.JButton jButton99;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
