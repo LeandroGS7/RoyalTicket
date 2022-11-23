@@ -4,6 +4,8 @@
  */
 package Interfaz;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author leang
@@ -13,9 +15,20 @@ public class Palcos extends javax.swing.JFrame {
     /**
      * Creates new form Palcos
      */
+    public String palcoSelected; 
+    
     public Palcos() {
         initComponents();
     }
+    
+    /*
+    public void setPalcoSelected(String palco){
+        this.palcoSelected = palco;
+    }
+    
+    public String getPalcoSelected(){
+        return this.palcoSelected;
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,62 +44,62 @@ public class Palcos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
-        jButton25 = new javax.swing.JButton();
-        jButton42 = new javax.swing.JButton();
-        jButton53 = new javax.swing.JButton();
-        jButton54 = new javax.swing.JButton();
-        jButton57 = new javax.swing.JButton();
-        jButton58 = new javax.swing.JButton();
-        jButton59 = new javax.swing.JButton();
-        jButton60 = new javax.swing.JButton();
-        jButton61 = new javax.swing.JButton();
-        jButton62 = new javax.swing.JButton();
-        jButton63 = new javax.swing.JButton();
-        jButton64 = new javax.swing.JButton();
-        jButton66 = new javax.swing.JButton();
-        jButton67 = new javax.swing.JButton();
-        jButton68 = new javax.swing.JButton();
-        jButton69 = new javax.swing.JButton();
-        jButton70 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton71 = new javax.swing.JButton();
-        jButton72 = new javax.swing.JButton();
-        jButton73 = new javax.swing.JButton();
-        jButton74 = new javax.swing.JButton();
-        jButton75 = new javax.swing.JButton();
-        jButton77 = new javax.swing.JButton();
-        jButton76 = new javax.swing.JButton();
-        jButton65 = new javax.swing.JButton();
-        jButton78 = new javax.swing.JButton();
-        jButton79 = new javax.swing.JButton();
-        jButton26 = new javax.swing.JButton();
-        jButton80 = new javax.swing.JButton();
-        jButton81 = new javax.swing.JButton();
-        jButton82 = new javax.swing.JButton();
-        jButton27 = new javax.swing.JButton();
-        jButton83 = new javax.swing.JButton();
-        jButton84 = new javax.swing.JButton();
-        jButton85 = new javax.swing.JButton();
-        jButton28 = new javax.swing.JButton();
-        jButton86 = new javax.swing.JButton();
-        jButton87 = new javax.swing.JButton();
-        jButton88 = new javax.swing.JButton();
-        jButton89 = new javax.swing.JButton();
-        jButton90 = new javax.swing.JButton();
-        jButton91 = new javax.swing.JButton();
-        jButton92 = new javax.swing.JButton();
-        jButton93 = new javax.swing.JButton();
-        jButton94 = new javax.swing.JButton();
-        jButton95 = new javax.swing.JButton();
-        jButton96 = new javax.swing.JButton();
-        jButton97 = new javax.swing.JButton();
-        jButton98 = new javax.swing.JButton();
-        jButton99 = new javax.swing.JButton();
-        jButton101 = new javax.swing.JButton();
-        jButton102 = new javax.swing.JButton();
+        D2 = new javax.swing.JButton();
+        F2 = new javax.swing.JButton();
+        A1 = new javax.swing.JButton();
+        A2 = new javax.swing.JButton();
+        A3 = new javax.swing.JButton();
+        B1 = new javax.swing.JButton();
+        B2 = new javax.swing.JButton();
+        A6 = new javax.swing.JButton();
+        A7 = new javax.swing.JButton();
+        B7 = new javax.swing.JButton();
+        B8 = new javax.swing.JButton();
+        A5 = new javax.swing.JButton();
+        A4 = new javax.swing.JButton();
+        B6 = new javax.swing.JButton();
+        B5 = new javax.swing.JButton();
+        B4 = new javax.swing.JButton();
+        B3 = new javax.swing.JButton();
+        C8 = new javax.swing.JButton();
+        C1 = new javax.swing.JButton();
+        C2 = new javax.swing.JButton();
+        C5 = new javax.swing.JButton();
+        C6 = new javax.swing.JButton();
+        C7 = new javax.swing.JButton();
+        C3 = new javax.swing.JButton();
+        C4 = new javax.swing.JButton();
+        D1 = new javax.swing.JButton();
+        D4 = new javax.swing.JButton();
+        D3 = new javax.swing.JButton();
+        D6 = new javax.swing.JButton();
+        D5 = new javax.swing.JButton();
+        D8 = new javax.swing.JButton();
+        D7 = new javax.swing.JButton();
+        E2 = new javax.swing.JButton();
+        E1 = new javax.swing.JButton();
+        E4 = new javax.swing.JButton();
+        E3 = new javax.swing.JButton();
+        E6 = new javax.swing.JButton();
+        E5 = new javax.swing.JButton();
+        E8 = new javax.swing.JButton();
+        E7 = new javax.swing.JButton();
+        F1 = new javax.swing.JButton();
+        F4 = new javax.swing.JButton();
+        F3 = new javax.swing.JButton();
+        F6 = new javax.swing.JButton();
+        F5 = new javax.swing.JButton();
+        G8 = new javax.swing.JButton();
+        F7 = new javax.swing.JButton();
+        G2 = new javax.swing.JButton();
+        G1 = new javax.swing.JButton();
+        G3 = new javax.swing.JButton();
+        G6 = new javax.swing.JButton();
+        G7 = new javax.swing.JButton();
+        F8 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        A8 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -110,6 +123,7 @@ public class Palcos extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -164,440 +178,713 @@ public class Palcos extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 150, 20, 20));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 200, 20, 20));
 
-        jButton25.setBackground(new java.awt.Color(255, 102, 204));
-        jButton25.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton25.setForeground(new java.awt.Color(255, 255, 255));
-        jButton25.setText("L");
-        jPanel1.add(jButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 70, 40));
-
-        jButton42.setBackground(new java.awt.Color(102, 102, 102));
-        jButton42.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton42.setForeground(new java.awt.Color(255, 255, 255));
-        jButton42.setText("L");
-        jPanel1.add(jButton42, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 70, 40));
-
-        jButton53.setBackground(new java.awt.Color(255, 51, 51));
-        jButton53.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton53.setForeground(new java.awt.Color(255, 255, 255));
-        jButton53.setText("L");
-        jButton53.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton53ActionPerformed(evt);
+        D2.setBackground(new java.awt.Color(255, 102, 204));
+        D2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        D2.setForeground(new java.awt.Color(255, 255, 255));
+        D2.setText("L");
+        D2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                D2MouseClicked(evt);
             }
         });
-        jPanel1.add(jButton53, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 70, 40));
+        jPanel1.add(D2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 70, 40));
 
-        jButton54.setBackground(new java.awt.Color(255, 51, 51));
-        jButton54.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton54.setForeground(new java.awt.Color(255, 255, 255));
-        jButton54.setText("L");
-        jButton54.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton54ActionPerformed(evt);
+        F2.setBackground(new java.awt.Color(102, 102, 102));
+        F2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        F2.setForeground(new java.awt.Color(255, 255, 255));
+        F2.setText("L");
+        F2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                F2MouseClicked(evt);
             }
         });
-        jPanel1.add(jButton54, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 70, 40));
+        jPanel1.add(F2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 70, 40));
 
-        jButton57.setBackground(new java.awt.Color(255, 51, 51));
-        jButton57.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton57.setForeground(new java.awt.Color(255, 255, 255));
-        jButton57.setText("L");
-        jButton57.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton57ActionPerformed(evt);
+        A1.setBackground(new java.awt.Color(255, 51, 51));
+        A1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        A1.setForeground(new java.awt.Color(255, 255, 255));
+        A1.setText("L");
+        A1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                A1MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                A1MousePressed(evt);
             }
         });
-        jPanel1.add(jButton57, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 70, 40));
-
-        jButton58.setBackground(new java.awt.Color(255, 51, 51));
-        jButton58.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton58.setForeground(new java.awt.Color(255, 255, 255));
-        jButton58.setText("L");
-        jButton58.addActionListener(new java.awt.event.ActionListener() {
+        A1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton58ActionPerformed(evt);
+                A1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton58, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 70, 40));
+        jPanel1.add(A1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 70, 40));
 
-        jButton59.setBackground(new java.awt.Color(255, 51, 51));
-        jButton59.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton59.setForeground(new java.awt.Color(255, 255, 255));
-        jButton59.setText("L");
-        jButton59.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton59ActionPerformed(evt);
+        A2.setBackground(new java.awt.Color(255, 51, 51));
+        A2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        A2.setForeground(new java.awt.Color(255, 255, 255));
+        A2.setText("L");
+        A2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                A2MouseClicked(evt);
             }
         });
-        jPanel1.add(jButton59, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 70, 40));
-
-        jButton60.setBackground(new java.awt.Color(255, 51, 51));
-        jButton60.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton60.setForeground(new java.awt.Color(255, 255, 255));
-        jButton60.setText("L");
-        jButton60.addActionListener(new java.awt.event.ActionListener() {
+        A2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton60ActionPerformed(evt);
+                A2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton60, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, 70, 40));
+        jPanel1.add(A2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 70, 40));
 
-        jButton61.setBackground(new java.awt.Color(255, 51, 51));
-        jButton61.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton61.setForeground(new java.awt.Color(255, 255, 255));
-        jButton61.setText("L");
-        jButton61.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton61ActionPerformed(evt);
+        A3.setBackground(new java.awt.Color(255, 51, 51));
+        A3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        A3.setForeground(new java.awt.Color(255, 255, 255));
+        A3.setText("L");
+        A3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                A3MouseClicked(evt);
             }
         });
-        jPanel1.add(jButton61, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, 70, 40));
-
-        jButton62.setBackground(new java.awt.Color(255, 51, 51));
-        jButton62.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton62.setForeground(new java.awt.Color(255, 255, 255));
-        jButton62.setText("L");
-        jButton62.addActionListener(new java.awt.event.ActionListener() {
+        A3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton62ActionPerformed(evt);
+                A3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton62, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, 70, 40));
+        jPanel1.add(A3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 70, 40));
 
-        jButton63.setBackground(new java.awt.Color(255, 51, 51));
-        jButton63.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton63.setForeground(new java.awt.Color(255, 255, 255));
-        jButton63.setText("L");
-        jButton63.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton63ActionPerformed(evt);
+        B1.setBackground(new java.awt.Color(255, 51, 51));
+        B1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        B1.setForeground(new java.awt.Color(255, 255, 255));
+        B1.setText("L");
+        B1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B1MouseClicked(evt);
             }
         });
-        jPanel1.add(jButton63, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 150, 70, 40));
-
-        jButton64.setBackground(new java.awt.Color(0, 204, 255));
-        jButton64.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton64.setForeground(new java.awt.Color(255, 255, 255));
-        jButton64.setText("L");
-        jButton64.addActionListener(new java.awt.event.ActionListener() {
+        B1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton64ActionPerformed(evt);
+                B1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton64, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 70, 40));
+        jPanel1.add(B1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 70, 40));
 
-        jButton66.setBackground(new java.awt.Color(0, 204, 255));
-        jButton66.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton66.setForeground(new java.awt.Color(255, 255, 255));
-        jButton66.setText("L");
-        jButton66.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton66ActionPerformed(evt);
+        B2.setBackground(new java.awt.Color(255, 51, 51));
+        B2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        B2.setForeground(new java.awt.Color(255, 255, 255));
+        B2.setText("L");
+        B2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B2MouseClicked(evt);
             }
         });
-        jPanel1.add(jButton66, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 70, 40));
-
-        jButton67.setBackground(new java.awt.Color(0, 204, 255));
-        jButton67.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton67.setForeground(new java.awt.Color(255, 255, 255));
-        jButton67.setText("L");
-        jButton67.addActionListener(new java.awt.event.ActionListener() {
+        B2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton67ActionPerformed(evt);
+                B2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton67, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 70, 40));
+        jPanel1.add(B2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 70, 40));
 
-        jButton68.setBackground(new java.awt.Color(0, 204, 255));
-        jButton68.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton68.setForeground(new java.awt.Color(255, 255, 255));
-        jButton68.setText("L");
-        jButton68.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton68ActionPerformed(evt);
+        A6.setBackground(new java.awt.Color(255, 51, 51));
+        A6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        A6.setForeground(new java.awt.Color(255, 255, 255));
+        A6.setText("L");
+        A6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                A6MouseClicked(evt);
             }
         });
-        jPanel1.add(jButton68, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 70, 40));
-
-        jButton69.setBackground(new java.awt.Color(0, 204, 255));
-        jButton69.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton69.setForeground(new java.awt.Color(255, 255, 255));
-        jButton69.setText("L");
-        jButton69.addActionListener(new java.awt.event.ActionListener() {
+        A6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton69ActionPerformed(evt);
+                A6ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton69, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 70, 40));
+        jPanel1.add(A6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, 70, 40));
 
-        jButton70.setBackground(new java.awt.Color(0, 204, 255));
-        jButton70.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton70.setForeground(new java.awt.Color(255, 255, 255));
-        jButton70.setText("L");
-        jButton70.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton70ActionPerformed(evt);
+        A7.setBackground(new java.awt.Color(255, 51, 51));
+        A7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        A7.setForeground(new java.awt.Color(255, 255, 255));
+        A7.setText("L");
+        A7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                A7MouseClicked(evt);
             }
         });
-        jPanel1.add(jButton70, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 70, 40));
-
-        jButton3.setBackground(new java.awt.Color(255, 51, 51));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("L");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        A7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                A7ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 200, 70, 40));
+        jPanel1.add(A7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, 70, 40));
 
-        jButton71.setBackground(new java.awt.Color(255, 51, 51));
-        jButton71.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton71.setForeground(new java.awt.Color(255, 255, 255));
-        jButton71.setText("L");
-        jButton71.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton71ActionPerformed(evt);
+        B7.setBackground(new java.awt.Color(255, 51, 51));
+        B7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        B7.setForeground(new java.awt.Color(255, 255, 255));
+        B7.setText("L");
+        B7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B7MouseClicked(evt);
             }
         });
-        jPanel1.add(jButton71, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 70, 40));
-
-        jButton72.setBackground(new java.awt.Color(255, 51, 51));
-        jButton72.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton72.setForeground(new java.awt.Color(255, 255, 255));
-        jButton72.setText("L");
-        jButton72.addActionListener(new java.awt.event.ActionListener() {
+        B7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton72ActionPerformed(evt);
+                B7ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton72, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 70, 40));
+        jPanel1.add(B7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, 70, 40));
 
-        jButton73.setBackground(new java.awt.Color(255, 51, 51));
-        jButton73.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton73.setForeground(new java.awt.Color(255, 255, 255));
-        jButton73.setText("L");
-        jButton73.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton73ActionPerformed(evt);
+        B8.setBackground(new java.awt.Color(255, 51, 51));
+        B8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        B8.setForeground(new java.awt.Color(255, 255, 255));
+        B8.setText("L");
+        B8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B8MouseClicked(evt);
             }
         });
-        jPanel1.add(jButton73, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 70, 40));
-
-        jButton74.setBackground(new java.awt.Color(255, 51, 51));
-        jButton74.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton74.setForeground(new java.awt.Color(255, 255, 255));
-        jButton74.setText("L");
-        jButton74.addActionListener(new java.awt.event.ActionListener() {
+        B8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton74ActionPerformed(evt);
+                B8ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton74, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 70, 40));
+        jPanel1.add(B8, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 150, 70, 40));
 
-        jButton75.setBackground(new java.awt.Color(255, 51, 51));
-        jButton75.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton75.setForeground(new java.awt.Color(255, 255, 255));
-        jButton75.setText("L");
-        jButton75.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton75ActionPerformed(evt);
+        A5.setBackground(new java.awt.Color(0, 204, 255));
+        A5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        A5.setForeground(new java.awt.Color(255, 255, 255));
+        A5.setText("L");
+        A5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                A5MouseClicked(evt);
             }
         });
-        jPanel1.add(jButton75, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, 70, 40));
-
-        jButton77.setBackground(new java.awt.Color(255, 51, 51));
-        jButton77.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton77.setForeground(new java.awt.Color(255, 255, 255));
-        jButton77.setText("L");
-        jButton77.addActionListener(new java.awt.event.ActionListener() {
+        A5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton77ActionPerformed(evt);
+                A5ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton77, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 70, 40));
+        jPanel1.add(A5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 70, 40));
 
-        jButton76.setBackground(new java.awt.Color(255, 51, 51));
-        jButton76.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton76.setForeground(new java.awt.Color(255, 255, 255));
-        jButton76.setText("L");
-        jButton76.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton76ActionPerformed(evt);
+        A4.setBackground(new java.awt.Color(0, 204, 255));
+        A4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        A4.setForeground(new java.awt.Color(255, 255, 255));
+        A4.setText("L");
+        A4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                A4MouseClicked(evt);
             }
         });
-        jPanel1.add(jButton76, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 70, 40));
+        A4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(A4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 70, 40));
 
-        jButton65.setBackground(new java.awt.Color(255, 102, 204));
-        jButton65.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton65.setForeground(new java.awt.Color(255, 255, 255));
-        jButton65.setText("L");
-        jPanel1.add(jButton65, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 70, 40));
+        B6.setBackground(new java.awt.Color(0, 204, 255));
+        B6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        B6.setForeground(new java.awt.Color(255, 255, 255));
+        B6.setText("L");
+        B6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B6MouseClicked(evt);
+            }
+        });
+        B6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(B6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 70, 40));
 
-        jButton78.setBackground(new java.awt.Color(255, 102, 204));
-        jButton78.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton78.setForeground(new java.awt.Color(255, 255, 255));
-        jButton78.setText("L");
-        jPanel1.add(jButton78, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 70, 40));
+        B5.setBackground(new java.awt.Color(0, 204, 255));
+        B5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        B5.setForeground(new java.awt.Color(255, 255, 255));
+        B5.setText("L");
+        B5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B5MouseClicked(evt);
+            }
+        });
+        B5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(B5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 70, 40));
 
-        jButton79.setBackground(new java.awt.Color(255, 102, 204));
-        jButton79.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton79.setForeground(new java.awt.Color(255, 255, 255));
-        jButton79.setText("L");
-        jPanel1.add(jButton79, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 70, 40));
+        B4.setBackground(new java.awt.Color(0, 204, 255));
+        B4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        B4.setForeground(new java.awt.Color(255, 255, 255));
+        B4.setText("L");
+        B4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B4MouseClicked(evt);
+            }
+        });
+        B4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(B4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 70, 40));
 
-        jButton26.setBackground(new java.awt.Color(255, 102, 204));
-        jButton26.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton26.setForeground(new java.awt.Color(255, 255, 255));
-        jButton26.setText("L");
-        jPanel1.add(jButton26, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, 70, 40));
+        B3.setBackground(new java.awt.Color(0, 204, 255));
+        B3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        B3.setForeground(new java.awt.Color(255, 255, 255));
+        B3.setText("L");
+        B3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B3MouseClicked(evt);
+            }
+        });
+        B3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(B3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 70, 40));
 
-        jButton80.setBackground(new java.awt.Color(255, 102, 204));
-        jButton80.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton80.setForeground(new java.awt.Color(255, 255, 255));
-        jButton80.setText("L");
-        jPanel1.add(jButton80, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 70, 40));
+        C8.setBackground(new java.awt.Color(255, 51, 51));
+        C8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        C8.setForeground(new java.awt.Color(255, 255, 255));
+        C8.setText("L");
+        C8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                C8MouseClicked(evt);
+            }
+        });
+        C8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C8ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(C8, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 200, 70, 40));
 
-        jButton81.setBackground(new java.awt.Color(255, 102, 204));
-        jButton81.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton81.setForeground(new java.awt.Color(255, 255, 255));
-        jButton81.setText("L");
-        jPanel1.add(jButton81, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 260, 70, 40));
+        C1.setBackground(new java.awt.Color(255, 51, 51));
+        C1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        C1.setForeground(new java.awt.Color(255, 255, 255));
+        C1.setText("L");
+        C1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                C1MouseClicked(evt);
+            }
+        });
+        C1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(C1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 70, 40));
 
-        jButton82.setBackground(new java.awt.Color(255, 102, 204));
-        jButton82.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton82.setForeground(new java.awt.Color(255, 255, 255));
-        jButton82.setText("L");
-        jPanel1.add(jButton82, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 260, 70, 40));
+        C2.setBackground(new java.awt.Color(255, 51, 51));
+        C2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        C2.setForeground(new java.awt.Color(255, 255, 255));
+        C2.setText("L");
+        C2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                C2MouseClicked(evt);
+            }
+        });
+        C2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(C2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 70, 40));
 
-        jButton27.setBackground(new java.awt.Color(255, 102, 204));
-        jButton27.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton27.setForeground(new java.awt.Color(255, 255, 255));
-        jButton27.setText("L");
-        jPanel1.add(jButton27, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 70, 40));
+        C5.setBackground(new java.awt.Color(255, 51, 51));
+        C5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        C5.setForeground(new java.awt.Color(255, 255, 255));
+        C5.setText("L");
+        C5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                C5MouseClicked(evt);
+            }
+        });
+        C5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(C5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 70, 40));
 
-        jButton83.setBackground(new java.awt.Color(255, 102, 204));
-        jButton83.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton83.setForeground(new java.awt.Color(255, 255, 255));
-        jButton83.setText("L");
-        jPanel1.add(jButton83, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 70, 40));
+        C6.setBackground(new java.awt.Color(255, 51, 51));
+        C6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        C6.setForeground(new java.awt.Color(255, 255, 255));
+        C6.setText("L");
+        C6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                C6MouseClicked(evt);
+            }
+        });
+        C6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(C6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 70, 40));
 
-        jButton84.setBackground(new java.awt.Color(255, 102, 204));
-        jButton84.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton84.setForeground(new java.awt.Color(255, 255, 255));
-        jButton84.setText("L");
-        jPanel1.add(jButton84, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 70, 40));
+        C7.setBackground(new java.awt.Color(255, 51, 51));
+        C7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        C7.setForeground(new java.awt.Color(255, 255, 255));
+        C7.setText("L");
+        C7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                C7MouseClicked(evt);
+            }
+        });
+        C7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C7ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(C7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, 70, 40));
 
-        jButton85.setBackground(new java.awt.Color(255, 102, 204));
-        jButton85.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton85.setForeground(new java.awt.Color(255, 255, 255));
-        jButton85.setText("L");
-        jPanel1.add(jButton85, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 70, 40));
+        C3.setBackground(new java.awt.Color(255, 51, 51));
+        C3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        C3.setForeground(new java.awt.Color(255, 255, 255));
+        C3.setText("L");
+        C3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                C3MouseClicked(evt);
+            }
+        });
+        C3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(C3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 70, 40));
 
-        jButton28.setBackground(new java.awt.Color(255, 102, 204));
-        jButton28.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton28.setForeground(new java.awt.Color(255, 255, 255));
-        jButton28.setText("L");
-        jPanel1.add(jButton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 310, 70, 40));
+        C4.setBackground(new java.awt.Color(255, 51, 51));
+        C4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        C4.setForeground(new java.awt.Color(255, 255, 255));
+        C4.setText("L");
+        C4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                C4MouseClicked(evt);
+            }
+        });
+        C4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(C4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 70, 40));
 
-        jButton86.setBackground(new java.awt.Color(255, 102, 204));
-        jButton86.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton86.setForeground(new java.awt.Color(255, 255, 255));
-        jButton86.setText("L");
-        jPanel1.add(jButton86, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, 70, 40));
+        D1.setBackground(new java.awt.Color(255, 102, 204));
+        D1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        D1.setForeground(new java.awt.Color(255, 255, 255));
+        D1.setText("L");
+        D1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                D1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(D1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 70, 40));
 
-        jButton87.setBackground(new java.awt.Color(255, 102, 204));
-        jButton87.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton87.setForeground(new java.awt.Color(255, 255, 255));
-        jButton87.setText("L");
-        jPanel1.add(jButton87, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 310, 70, 40));
+        D4.setBackground(new java.awt.Color(255, 102, 204));
+        D4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        D4.setForeground(new java.awt.Color(255, 255, 255));
+        D4.setText("L");
+        D4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                D4MouseClicked(evt);
+            }
+        });
+        jPanel1.add(D4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 70, 40));
 
-        jButton88.setBackground(new java.awt.Color(255, 102, 204));
-        jButton88.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton88.setForeground(new java.awt.Color(255, 255, 255));
-        jButton88.setText("L");
-        jPanel1.add(jButton88, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 310, 70, 40));
+        D3.setBackground(new java.awt.Color(255, 102, 204));
+        D3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        D3.setForeground(new java.awt.Color(255, 255, 255));
+        D3.setText("L");
+        D3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                D3MouseClicked(evt);
+            }
+        });
+        jPanel1.add(D3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 70, 40));
 
-        jButton89.setBackground(new java.awt.Color(102, 102, 102));
-        jButton89.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton89.setForeground(new java.awt.Color(255, 255, 255));
-        jButton89.setText("L");
-        jPanel1.add(jButton89, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 70, 40));
+        D6.setBackground(new java.awt.Color(255, 102, 204));
+        D6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        D6.setForeground(new java.awt.Color(255, 255, 255));
+        D6.setText("L");
+        D6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                D6MouseClicked(evt);
+            }
+        });
+        jPanel1.add(D6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, 70, 40));
 
-        jButton90.setBackground(new java.awt.Color(102, 102, 102));
-        jButton90.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton90.setForeground(new java.awt.Color(255, 255, 255));
-        jButton90.setText("L");
-        jPanel1.add(jButton90, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, 70, 40));
+        D5.setBackground(new java.awt.Color(255, 102, 204));
+        D5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        D5.setForeground(new java.awt.Color(255, 255, 255));
+        D5.setText("L");
+        D5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                D5MouseClicked(evt);
+            }
+        });
+        jPanel1.add(D5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 70, 40));
 
-        jButton91.setBackground(new java.awt.Color(102, 102, 102));
-        jButton91.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton91.setForeground(new java.awt.Color(255, 255, 255));
-        jButton91.setText("L");
-        jPanel1.add(jButton91, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, 70, 40));
+        D8.setBackground(new java.awt.Color(255, 102, 204));
+        D8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        D8.setForeground(new java.awt.Color(255, 255, 255));
+        D8.setText("L");
+        D8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                D8MouseClicked(evt);
+            }
+        });
+        jPanel1.add(D8, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 260, 70, 40));
 
-        jButton92.setBackground(new java.awt.Color(102, 102, 102));
-        jButton92.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton92.setForeground(new java.awt.Color(255, 255, 255));
-        jButton92.setText("L");
-        jPanel1.add(jButton92, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, 70, 40));
+        D7.setBackground(new java.awt.Color(255, 102, 204));
+        D7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        D7.setForeground(new java.awt.Color(255, 255, 255));
+        D7.setText("L");
+        D7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                D7MouseClicked(evt);
+            }
+        });
+        jPanel1.add(D7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 260, 70, 40));
 
-        jButton93.setBackground(new java.awt.Color(102, 102, 102));
-        jButton93.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton93.setForeground(new java.awt.Color(255, 255, 255));
-        jButton93.setText("L");
-        jPanel1.add(jButton93, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, 70, 40));
+        E2.setBackground(new java.awt.Color(255, 102, 204));
+        E2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        E2.setForeground(new java.awt.Color(255, 255, 255));
+        E2.setText("L");
+        E2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                E2MouseClicked(evt);
+            }
+        });
+        jPanel1.add(E2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 70, 40));
 
-        jButton94.setBackground(new java.awt.Color(102, 102, 102));
-        jButton94.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton94.setForeground(new java.awt.Color(255, 255, 255));
-        jButton94.setText("L");
-        jPanel1.add(jButton94, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 420, 70, 40));
+        E1.setBackground(new java.awt.Color(255, 102, 204));
+        E1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        E1.setForeground(new java.awt.Color(255, 255, 255));
+        E1.setText("L");
+        E1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                E1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(E1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 70, 40));
 
-        jButton95.setBackground(new java.awt.Color(102, 102, 102));
-        jButton95.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton95.setForeground(new java.awt.Color(255, 255, 255));
-        jButton95.setText("L");
-        jPanel1.add(jButton95, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 370, 70, 40));
+        E4.setBackground(new java.awt.Color(255, 102, 204));
+        E4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        E4.setForeground(new java.awt.Color(255, 255, 255));
+        E4.setText("L");
+        E4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                E4MouseClicked(evt);
+            }
+        });
+        jPanel1.add(E4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 70, 40));
 
-        jButton96.setBackground(new java.awt.Color(102, 102, 102));
-        jButton96.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton96.setForeground(new java.awt.Color(255, 255, 255));
-        jButton96.setText("L");
-        jPanel1.add(jButton96, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, 70, 40));
+        E3.setBackground(new java.awt.Color(255, 102, 204));
+        E3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        E3.setForeground(new java.awt.Color(255, 255, 255));
+        E3.setText("L");
+        E3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                E3MouseClicked(evt);
+            }
+        });
+        jPanel1.add(E3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 70, 40));
 
-        jButton97.setBackground(new java.awt.Color(102, 102, 102));
-        jButton97.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton97.setForeground(new java.awt.Color(255, 255, 255));
-        jButton97.setText("L");
-        jPanel1.add(jButton97, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, 70, 40));
+        E6.setBackground(new java.awt.Color(255, 102, 204));
+        E6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        E6.setForeground(new java.awt.Color(255, 255, 255));
+        E6.setText("L");
+        E6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                E6MouseClicked(evt);
+            }
+        });
+        jPanel1.add(E6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 310, 70, 40));
 
-        jButton98.setBackground(new java.awt.Color(102, 102, 102));
-        jButton98.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton98.setForeground(new java.awt.Color(255, 255, 255));
-        jButton98.setText("L");
-        jPanel1.add(jButton98, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 70, 40));
+        E5.setBackground(new java.awt.Color(255, 102, 204));
+        E5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        E5.setForeground(new java.awt.Color(255, 255, 255));
+        E5.setText("L");
+        E5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                E5MouseClicked(evt);
+            }
+        });
+        jPanel1.add(E5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, 70, 40));
 
-        jButton99.setBackground(new java.awt.Color(102, 102, 102));
-        jButton99.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton99.setForeground(new java.awt.Color(255, 255, 255));
-        jButton99.setText("L");
-        jPanel1.add(jButton99, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 420, 70, 40));
+        E8.setBackground(new java.awt.Color(255, 102, 204));
+        E8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        E8.setForeground(new java.awt.Color(255, 255, 255));
+        E8.setText("L");
+        E8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                E8MouseClicked(evt);
+            }
+        });
+        E8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                E8ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(E8, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 310, 70, 40));
 
-        jButton101.setBackground(new java.awt.Color(102, 102, 102));
-        jButton101.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton101.setForeground(new java.awt.Color(255, 255, 255));
-        jButton101.setText("L");
-        jPanel1.add(jButton101, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 420, 70, 40));
+        E7.setBackground(new java.awt.Color(255, 102, 204));
+        E7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        E7.setForeground(new java.awt.Color(255, 255, 255));
+        E7.setText("L");
+        E7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                E7MouseClicked(evt);
+            }
+        });
+        jPanel1.add(E7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 310, 70, 40));
 
-        jButton102.setBackground(new java.awt.Color(102, 102, 102));
-        jButton102.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton102.setForeground(new java.awt.Color(255, 255, 255));
-        jButton102.setText("L");
-        jPanel1.add(jButton102, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 370, 70, 40));
+        F1.setBackground(new java.awt.Color(102, 102, 102));
+        F1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        F1.setForeground(new java.awt.Color(255, 255, 255));
+        F1.setText("L");
+        F1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                F1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(F1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 70, 40));
+
+        F4.setBackground(new java.awt.Color(102, 102, 102));
+        F4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        F4.setForeground(new java.awt.Color(255, 255, 255));
+        F4.setText("L");
+        F4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                F4MouseClicked(evt);
+            }
+        });
+        jPanel1.add(F4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, 70, 40));
+
+        F3.setBackground(new java.awt.Color(102, 102, 102));
+        F3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        F3.setForeground(new java.awt.Color(255, 255, 255));
+        F3.setText("L");
+        F3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                F3MouseClicked(evt);
+            }
+        });
+        jPanel1.add(F3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, 70, 40));
+
+        F6.setBackground(new java.awt.Color(102, 102, 102));
+        F6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        F6.setForeground(new java.awt.Color(255, 255, 255));
+        F6.setText("L");
+        F6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                F6MouseClicked(evt);
+            }
+        });
+        jPanel1.add(F6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, 70, 40));
+
+        F5.setBackground(new java.awt.Color(102, 102, 102));
+        F5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        F5.setForeground(new java.awt.Color(255, 255, 255));
+        F5.setText("L");
+        F5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                F5MouseClicked(evt);
+            }
+        });
+        jPanel1.add(F5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, 70, 40));
+
+        G8.setBackground(new java.awt.Color(102, 102, 102));
+        G8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        G8.setForeground(new java.awt.Color(255, 255, 255));
+        G8.setText("L");
+        G8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                G8MouseClicked(evt);
+            }
+        });
+        jPanel1.add(G8, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 420, 70, 40));
+
+        F7.setBackground(new java.awt.Color(102, 102, 102));
+        F7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        F7.setForeground(new java.awt.Color(255, 255, 255));
+        F7.setText("L");
+        F7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                F7MouseClicked(evt);
+            }
+        });
+        jPanel1.add(F7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 370, 70, 40));
+
+        G2.setBackground(new java.awt.Color(102, 102, 102));
+        G2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        G2.setForeground(new java.awt.Color(255, 255, 255));
+        G2.setText("L");
+        G2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                G2MouseClicked(evt);
+            }
+        });
+        jPanel1.add(G2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, 70, 40));
+
+        G1.setBackground(new java.awt.Color(102, 102, 102));
+        G1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        G1.setForeground(new java.awt.Color(255, 255, 255));
+        G1.setText("L");
+        G1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                G1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(G1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, 70, 40));
+
+        G3.setBackground(new java.awt.Color(102, 102, 102));
+        G3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        G3.setForeground(new java.awt.Color(255, 255, 255));
+        G3.setText("L");
+        G3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                G3MouseClicked(evt);
+            }
+        });
+        jPanel1.add(G3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 70, 40));
+
+        G6.setBackground(new java.awt.Color(102, 102, 102));
+        G6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        G6.setForeground(new java.awt.Color(255, 255, 255));
+        G6.setText("L");
+        G6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                G6MouseClicked(evt);
+            }
+        });
+        jPanel1.add(G6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 420, 70, 40));
+
+        G7.setBackground(new java.awt.Color(102, 102, 102));
+        G7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        G7.setForeground(new java.awt.Color(255, 255, 255));
+        G7.setText("L");
+        G7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                G7MouseClicked(evt);
+            }
+        });
+        jPanel1.add(G7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 420, 70, 40));
+
+        F8.setBackground(new java.awt.Color(102, 102, 102));
+        F8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        F8.setForeground(new java.awt.Color(255, 255, 255));
+        F8.setText("L");
+        F8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                F8MouseClicked(evt);
+            }
+        });
+        jPanel1.add(F8, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 370, 70, 40));
 
         jPanel4.setBackground(new java.awt.Color(102, 0, 102));
 
@@ -612,24 +899,39 @@ public class Palcos extends javax.swing.JFrame {
             .addGap(0, 20, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 110, 20, -1));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 160, 20, -1));
 
         jLabel1.setText("Palco Dakiti");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 150, -1, -1));
-
-        jButton4.setBackground(new java.awt.Color(255, 51, 51));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("L");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 100, 70, 40));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 200, -1, -1));
+
+        A8.setBackground(new java.awt.Color(255, 51, 51));
+        A8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        A8.setForeground(new java.awt.Color(255, 255, 255));
+        A8.setText("L");
+        A8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                A8MouseClicked(evt);
+            }
+        });
+        A8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A8ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(A8, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 100, 70, 40));
 
         jLabel3.setText("Invitados Especiales");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 110, -1, -1));
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 160, -1, -1));
 
         jButton5.setBackground(new java.awt.Color(0, 204, 255));
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -639,10 +941,15 @@ public class Palcos extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 190, 20, 20));
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 240, 20, 20));
 
         jLabel4.setText("Palco Yonaguni");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 190, -1, -1));
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 240, -1, -1));
 
         jButton6.setBackground(new java.awt.Color(255, 102, 204));
         jButton6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -652,13 +959,23 @@ public class Palcos extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 230, 20, 20));
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 280, 20, 20));
 
         jLabel5.setText("Palco Callaita");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 230, -1, -1));
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 280, -1, -1));
 
         jLabel6.setText("Palco Oasis");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 270, -1, -1));
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 320, -1, -1));
 
         jButton7.setBackground(new java.awt.Color(102, 102, 102));
         jButton7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -668,7 +985,7 @@ public class Palcos extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 270, 20, 20));
+        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 320, 20, 20));
 
         btnIngreso1.setBackground(new java.awt.Color(255, 0, 51));
         btnIngreso1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
@@ -741,15 +1058,18 @@ public class Palcos extends javax.swing.JFrame {
         jLabel21.setText("7");
         jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, 10, -1));
 
+        jLabel22.setText("Seleccione el palco para conocer su precio.");
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 90, -1, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 965, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
         );
 
         pack();
@@ -759,101 +1079,101 @@ public class Palcos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton53ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton53ActionPerformed
+    private void A1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A1ActionPerformed
+                  
+    }//GEN-LAST:event_A1ActionPerformed
 
-    private void jButton54ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton54ActionPerformed
+    private void A2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton54ActionPerformed
+    }//GEN-LAST:event_A2ActionPerformed
 
-    private void jButton57ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton57ActionPerformed
+    private void A3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton57ActionPerformed
+    }//GEN-LAST:event_A3ActionPerformed
 
-    private void jButton58ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton58ActionPerformed
+    private void B1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton58ActionPerformed
+    }//GEN-LAST:event_B1ActionPerformed
 
-    private void jButton59ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton59ActionPerformed
+    private void B2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton59ActionPerformed
+    }//GEN-LAST:event_B2ActionPerformed
 
-    private void jButton60ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton60ActionPerformed
+    private void A6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton60ActionPerformed
+    }//GEN-LAST:event_A6ActionPerformed
 
-    private void jButton61ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton61ActionPerformed
+    private void A7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton61ActionPerformed
+    }//GEN-LAST:event_A7ActionPerformed
 
-    private void jButton62ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton62ActionPerformed
+    private void B7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton62ActionPerformed
+    }//GEN-LAST:event_B7ActionPerformed
 
-    private void jButton63ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton63ActionPerformed
+    private void B8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B8ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton63ActionPerformed
+    }//GEN-LAST:event_B8ActionPerformed
 
-    private void jButton64ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton64ActionPerformed
+    private void A5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton64ActionPerformed
+    }//GEN-LAST:event_A5ActionPerformed
 
-    private void jButton66ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton66ActionPerformed
+    private void A4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton66ActionPerformed
+    }//GEN-LAST:event_A4ActionPerformed
 
-    private void jButton67ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton67ActionPerformed
+    private void B6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton67ActionPerformed
+    }//GEN-LAST:event_B6ActionPerformed
 
-    private void jButton68ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton68ActionPerformed
+    private void B5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton68ActionPerformed
+    }//GEN-LAST:event_B5ActionPerformed
 
-    private void jButton69ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton69ActionPerformed
+    private void B4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton69ActionPerformed
+    }//GEN-LAST:event_B4ActionPerformed
 
-    private void jButton70ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton70ActionPerformed
+    private void B3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton70ActionPerformed
+    }//GEN-LAST:event_B3ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void C8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C8ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_C8ActionPerformed
 
-    private void jButton71ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton71ActionPerformed
+    private void C1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton71ActionPerformed
+    }//GEN-LAST:event_C1ActionPerformed
 
-    private void jButton72ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton72ActionPerformed
+    private void C2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton72ActionPerformed
+    }//GEN-LAST:event_C2ActionPerformed
 
-    private void jButton73ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton73ActionPerformed
+    private void C5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton73ActionPerformed
+    }//GEN-LAST:event_C5ActionPerformed
 
-    private void jButton74ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton74ActionPerformed
+    private void C6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton74ActionPerformed
+    }//GEN-LAST:event_C6ActionPerformed
 
-    private void jButton75ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton75ActionPerformed
+    private void C7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton75ActionPerformed
+    }//GEN-LAST:event_C7ActionPerformed
 
-    private void jButton77ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton77ActionPerformed
+    private void C3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton77ActionPerformed
+    }//GEN-LAST:event_C3ActionPerformed
 
-    private void jButton76ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton76ActionPerformed
+    private void C4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton76ActionPerformed
+    }//GEN-LAST:event_C4ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void A8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A8ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_A8ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
@@ -871,6 +1191,256 @@ public class Palcos extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnIngreso1ActionPerformed
 
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        JOptionPane.showMessageDialog(null, "Palco invitados especiales no está en venta.");
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        JOptionPane.showMessageDialog(null, "Palco Dakiti.  Valor: $5'000.000");
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        JOptionPane.showMessageDialog(null, "Palco Yonaguni.  Valor: $6'200.000");
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        JOptionPane.showMessageDialog(null, "Palco Callaita.  Valor: $4'300.000");
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        JOptionPane.showMessageDialog(null, "Palco Oasis.  Valor: $3'500.000");
+    }//GEN-LAST:event_jLabel6MouseClicked
+
+    public void actualizarPalcoSeleccionado(String codigoPalco){
+        ComprarPalco palco = new ComprarPalco();
+        palco.setPalcoSelected(codigoPalco);  
+        JOptionPane.showMessageDialog(null, "Palco "+codigoPalco+" seleccionado, puede continuar con la compra.");
+    }
+    private void A1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A1MouseClicked
+        actualizarPalcoSeleccionado("A1");
+        
+    }//GEN-LAST:event_A1MouseClicked
+
+    private void A1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A1MousePressed
+    }//GEN-LAST:event_A1MousePressed
+
+    private void E8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_E8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_E8ActionPerformed
+
+    private void A2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A2MouseClicked
+        actualizarPalcoSeleccionado("A2");
+    }//GEN-LAST:event_A2MouseClicked
+
+    private void A3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A3MouseClicked
+        actualizarPalcoSeleccionado("A3");
+    }//GEN-LAST:event_A3MouseClicked
+
+    private void A4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A4MouseClicked
+        actualizarPalcoSeleccionado("A4");
+    }//GEN-LAST:event_A4MouseClicked
+
+    private void A5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A5MouseClicked
+        actualizarPalcoSeleccionado("A5");
+    }//GEN-LAST:event_A5MouseClicked
+
+    private void A6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A6MouseClicked
+        actualizarPalcoSeleccionado("A6");
+    }//GEN-LAST:event_A6MouseClicked
+
+    private void A7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A7MouseClicked
+        actualizarPalcoSeleccionado("A7");
+    }//GEN-LAST:event_A7MouseClicked
+
+    private void A8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A8MouseClicked
+        actualizarPalcoSeleccionado("A8");
+    }//GEN-LAST:event_A8MouseClicked
+
+    private void B1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B1MouseClicked
+        actualizarPalcoSeleccionado("B1");
+    }//GEN-LAST:event_B1MouseClicked
+
+    private void B2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B2MouseClicked
+        actualizarPalcoSeleccionado("B2");
+    }//GEN-LAST:event_B2MouseClicked
+
+    private void B3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B3MouseClicked
+        actualizarPalcoSeleccionado("B3");
+    }//GEN-LAST:event_B3MouseClicked
+
+    private void B4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B4MouseClicked
+       actualizarPalcoSeleccionado("B4");
+    }//GEN-LAST:event_B4MouseClicked
+
+    private void B5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B5MouseClicked
+        actualizarPalcoSeleccionado("B5");
+    }//GEN-LAST:event_B5MouseClicked
+
+    private void B6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B6MouseClicked
+        actualizarPalcoSeleccionado("B6");
+    }//GEN-LAST:event_B6MouseClicked
+
+    private void B7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B7MouseClicked
+        actualizarPalcoSeleccionado("B7");
+    }//GEN-LAST:event_B7MouseClicked
+
+    private void B8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B8MouseClicked
+        actualizarPalcoSeleccionado("B8");
+    }//GEN-LAST:event_B8MouseClicked
+
+    private void C1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C1MouseClicked
+        actualizarPalcoSeleccionado("C1");
+    }//GEN-LAST:event_C1MouseClicked
+
+    private void C2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C2MouseClicked
+        actualizarPalcoSeleccionado("C2");
+    }//GEN-LAST:event_C2MouseClicked
+
+    private void C3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C3MouseClicked
+        actualizarPalcoSeleccionado("C3");
+    }//GEN-LAST:event_C3MouseClicked
+
+    private void C4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C4MouseClicked
+        actualizarPalcoSeleccionado("C4");
+    }//GEN-LAST:event_C4MouseClicked
+
+    private void C5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C5MouseClicked
+        actualizarPalcoSeleccionado("C5");
+    }//GEN-LAST:event_C5MouseClicked
+
+    private void C6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C6MouseClicked
+        actualizarPalcoSeleccionado("C6");
+    }//GEN-LAST:event_C6MouseClicked
+
+    private void C7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C7MouseClicked
+        actualizarPalcoSeleccionado("C7");
+    }//GEN-LAST:event_C7MouseClicked
+
+    private void C8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C8MouseClicked
+        actualizarPalcoSeleccionado("C8");
+    }//GEN-LAST:event_C8MouseClicked
+
+    private void D1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D1MouseClicked
+        actualizarPalcoSeleccionado("D1");
+    }//GEN-LAST:event_D1MouseClicked
+
+    private void D2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D2MouseClicked
+        actualizarPalcoSeleccionado("D2");
+    }//GEN-LAST:event_D2MouseClicked
+
+    private void D3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D3MouseClicked
+        actualizarPalcoSeleccionado("D3");
+    }//GEN-LAST:event_D3MouseClicked
+
+    private void D4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D4MouseClicked
+        actualizarPalcoSeleccionado("D4");
+    }//GEN-LAST:event_D4MouseClicked
+
+    private void D5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D5MouseClicked
+        actualizarPalcoSeleccionado("D5");
+    }//GEN-LAST:event_D5MouseClicked
+
+    private void D6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D6MouseClicked
+        actualizarPalcoSeleccionado("D6");
+    }//GEN-LAST:event_D6MouseClicked
+
+    private void D7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D7MouseClicked
+        actualizarPalcoSeleccionado("D7");
+    }//GEN-LAST:event_D7MouseClicked
+
+    private void D8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D8MouseClicked
+        actualizarPalcoSeleccionado("D8");
+    }//GEN-LAST:event_D8MouseClicked
+
+    private void E1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E1MouseClicked
+        actualizarPalcoSeleccionado("E1");
+    }//GEN-LAST:event_E1MouseClicked
+
+    private void E2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E2MouseClicked
+        actualizarPalcoSeleccionado("E2");
+    }//GEN-LAST:event_E2MouseClicked
+
+    private void E3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E3MouseClicked
+        actualizarPalcoSeleccionado("E3");
+    }//GEN-LAST:event_E3MouseClicked
+
+    private void E4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E4MouseClicked
+        actualizarPalcoSeleccionado("E4");
+    }//GEN-LAST:event_E4MouseClicked
+
+    private void E5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E5MouseClicked
+        actualizarPalcoSeleccionado("E5");
+    }//GEN-LAST:event_E5MouseClicked
+
+    private void E6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E6MouseClicked
+        actualizarPalcoSeleccionado("E6");
+    }//GEN-LAST:event_E6MouseClicked
+
+    private void E7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E7MouseClicked
+        actualizarPalcoSeleccionado("E7");
+    }//GEN-LAST:event_E7MouseClicked
+
+    private void E8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E8MouseClicked
+        actualizarPalcoSeleccionado("E8");
+    }//GEN-LAST:event_E8MouseClicked
+
+    private void F1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_F1MouseClicked
+        actualizarPalcoSeleccionado("F1");
+    }//GEN-LAST:event_F1MouseClicked
+
+    private void F2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_F2MouseClicked
+        actualizarPalcoSeleccionado("F2");
+    }//GEN-LAST:event_F2MouseClicked
+
+    private void F3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_F3MouseClicked
+        actualizarPalcoSeleccionado("F3");
+    }//GEN-LAST:event_F3MouseClicked
+
+    private void F4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_F4MouseClicked
+        actualizarPalcoSeleccionado("F4");
+    }//GEN-LAST:event_F4MouseClicked
+
+    private void F5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_F5MouseClicked
+        actualizarPalcoSeleccionado("F5");
+    }//GEN-LAST:event_F5MouseClicked
+
+    private void F6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_F6MouseClicked
+        actualizarPalcoSeleccionado("F6");
+    }//GEN-LAST:event_F6MouseClicked
+
+    private void F7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_F7MouseClicked
+        actualizarPalcoSeleccionado("F7");
+    }//GEN-LAST:event_F7MouseClicked
+
+    private void F8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_F8MouseClicked
+        actualizarPalcoSeleccionado("F8");
+    }//GEN-LAST:event_F8MouseClicked
+
+    private void G1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_G1MouseClicked
+        actualizarPalcoSeleccionado("C6");
+    }//GEN-LAST:event_G1MouseClicked
+
+    private void G2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_G2MouseClicked
+        actualizarPalcoSeleccionado("G2");
+    }//GEN-LAST:event_G2MouseClicked
+
+    private void G3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_G3MouseClicked
+        actualizarPalcoSeleccionado("G3");
+    }//GEN-LAST:event_G3MouseClicked
+
+    private void G6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_G6MouseClicked
+        actualizarPalcoSeleccionado("G6");
+    }//GEN-LAST:event_G6MouseClicked
+
+    private void G7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_G7MouseClicked
+        actualizarPalcoSeleccionado("G7");
+    }//GEN-LAST:event_G7MouseClicked
+
+    private void G8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_G8MouseClicked
+        actualizarPalcoSeleccionado("G8");
+    }//GEN-LAST:event_G8MouseClicked
+       
+    
     /**
      * @param args the command line arguments
      */
@@ -907,65 +1477,65 @@ public class Palcos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton A1;
+    private javax.swing.JButton A2;
+    private javax.swing.JButton A3;
+    private javax.swing.JButton A4;
+    private javax.swing.JButton A5;
+    private javax.swing.JButton A6;
+    private javax.swing.JButton A7;
+    private javax.swing.JButton A8;
+    private javax.swing.JButton B1;
+    private javax.swing.JButton B2;
+    private javax.swing.JButton B3;
+    private javax.swing.JButton B4;
+    private javax.swing.JButton B5;
+    private javax.swing.JButton B6;
+    private javax.swing.JButton B7;
+    private javax.swing.JButton B8;
+    private javax.swing.JButton C1;
+    private javax.swing.JButton C2;
+    private javax.swing.JButton C3;
+    private javax.swing.JButton C4;
+    private javax.swing.JButton C5;
+    private javax.swing.JButton C6;
+    private javax.swing.JButton C7;
+    private javax.swing.JButton C8;
+    private javax.swing.JButton D1;
+    private javax.swing.JButton D2;
+    private javax.swing.JButton D3;
+    private javax.swing.JButton D4;
+    private javax.swing.JButton D5;
+    private javax.swing.JButton D6;
+    private javax.swing.JButton D7;
+    private javax.swing.JButton D8;
+    private javax.swing.JButton E1;
+    private javax.swing.JButton E2;
+    private javax.swing.JButton E3;
+    private javax.swing.JButton E4;
+    private javax.swing.JButton E5;
+    private javax.swing.JButton E6;
+    private javax.swing.JButton E7;
+    private javax.swing.JButton E8;
+    private javax.swing.JButton F1;
+    private javax.swing.JButton F2;
+    private javax.swing.JButton F3;
+    private javax.swing.JButton F4;
+    private javax.swing.JButton F5;
+    private javax.swing.JButton F6;
+    private javax.swing.JButton F7;
+    private javax.swing.JButton F8;
+    private javax.swing.JButton G1;
+    private javax.swing.JButton G2;
+    private javax.swing.JButton G3;
+    private javax.swing.JButton G6;
+    private javax.swing.JButton G7;
+    private javax.swing.JButton G8;
     private javax.swing.JButton btnIngreso1;
-    private javax.swing.JButton jButton101;
-    private javax.swing.JButton jButton102;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton25;
-    private javax.swing.JButton jButton26;
-    private javax.swing.JButton jButton27;
-    private javax.swing.JButton jButton28;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton42;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton53;
-    private javax.swing.JButton jButton54;
-    private javax.swing.JButton jButton57;
-    private javax.swing.JButton jButton58;
-    private javax.swing.JButton jButton59;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton60;
-    private javax.swing.JButton jButton61;
-    private javax.swing.JButton jButton62;
-    private javax.swing.JButton jButton63;
-    private javax.swing.JButton jButton64;
-    private javax.swing.JButton jButton65;
-    private javax.swing.JButton jButton66;
-    private javax.swing.JButton jButton67;
-    private javax.swing.JButton jButton68;
-    private javax.swing.JButton jButton69;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton70;
-    private javax.swing.JButton jButton71;
-    private javax.swing.JButton jButton72;
-    private javax.swing.JButton jButton73;
-    private javax.swing.JButton jButton74;
-    private javax.swing.JButton jButton75;
-    private javax.swing.JButton jButton76;
-    private javax.swing.JButton jButton77;
-    private javax.swing.JButton jButton78;
-    private javax.swing.JButton jButton79;
-    private javax.swing.JButton jButton80;
-    private javax.swing.JButton jButton81;
-    private javax.swing.JButton jButton82;
-    private javax.swing.JButton jButton83;
-    private javax.swing.JButton jButton84;
-    private javax.swing.JButton jButton85;
-    private javax.swing.JButton jButton86;
-    private javax.swing.JButton jButton87;
-    private javax.swing.JButton jButton88;
-    private javax.swing.JButton jButton89;
-    private javax.swing.JButton jButton90;
-    private javax.swing.JButton jButton91;
-    private javax.swing.JButton jButton92;
-    private javax.swing.JButton jButton93;
-    private javax.swing.JButton jButton94;
-    private javax.swing.JButton jButton95;
-    private javax.swing.JButton jButton96;
-    private javax.swing.JButton jButton97;
-    private javax.swing.JButton jButton98;
-    private javax.swing.JButton jButton99;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -980,6 +1550,7 @@ public class Palcos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

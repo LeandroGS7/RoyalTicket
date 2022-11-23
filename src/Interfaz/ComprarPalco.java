@@ -22,7 +22,14 @@ public class ComprarPalco extends javax.swing.JPanel {
     Connection con = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
-    /**
+    
+    public static String palcoSeleccionado="";
+    
+    public void setPalcoSelected(String palco){
+         palcoSeleccionado = palco;  
+    }
+ 
+    
     public ComprarPalco() {
         initComponents();
     }
@@ -56,6 +63,7 @@ public class ComprarPalco extends javax.swing.JPanel {
         jSeparator7 = new javax.swing.JSeparator();
         btnComprarPalco = new javax.swing.JButton();
         btnVerPalcos = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -167,7 +175,7 @@ public class ComprarPalco extends javax.swing.JPanel {
                 btnComprarPalcoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnComprarPalco, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, 120, 50));
+        jPanel1.add(btnComprarPalco, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 260, 120, 50));
 
         btnVerPalcos.setBackground(new java.awt.Color(204, 255, 255));
         btnVerPalcos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -178,6 +186,19 @@ public class ComprarPalco extends javax.swing.JPanel {
             }
         });
         jPanel1.add(btnVerPalcos, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, 120, 50));
+
+        jButton1.setText("Obtener palco seleccionado");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -208,7 +229,7 @@ public class ComprarPalco extends javax.swing.JPanel {
     }//GEN-LAST:event_txtNombreCompraPalcoActionPerformed
 
     private void txtCodigoCompraPalcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoCompraPalcoActionPerformed
-        // TODO add your handling code here:
+        txtCodigoCompraPalco.setText(palcoSeleccionado);
     }//GEN-LAST:event_txtCodigoCompraPalcoActionPerformed
 
     private void btnComprarPalcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarPalcoActionPerformed
@@ -244,10 +265,22 @@ public class ComprarPalco extends javax.swing.JPanel {
         palcos.setVisible(true);
     }//GEN-LAST:event_btnVerPalcosActionPerformed
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        if(palcoSeleccionado.length()!=0)
+            txtCodigoCompraPalco.setText(palcoSeleccionado);
+        else
+            JOptionPane.showMessageDialog(null, "Aun no ha seleccionado un palco");
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnComprarPalco;
     private javax.swing.JButton btnVerPalcos;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
