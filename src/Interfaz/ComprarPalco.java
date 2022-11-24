@@ -4,6 +4,7 @@
  */
 package Interfaz;
 
+import static Interfaz.ComprarEntrada.generarCodigoReserva;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,6 +23,7 @@ public class ComprarPalco extends javax.swing.JPanel {
     Connection con = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
+    PreparedStatement pst2 = null;
     
     public static String palcoSeleccionado="";
     
@@ -32,6 +34,7 @@ public class ComprarPalco extends javax.swing.JPanel {
     
     public ComprarPalco() {
         initComponents();
+        con = DbConnection.ConnectionDB();
     }
 
     /**
@@ -233,25 +236,30 @@ public class ComprarPalco extends javax.swing.JPanel {
     }//GEN-LAST:event_txtCodigoCompraPalcoActionPerformed
 
     private void btnComprarPalcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarPalcoActionPerformed
-        String sql = "SELECT * FROM palcos WHERE codigoPalco LIKE ?;";
+        String sql = "SELECT * FROM palcos WHERE codigoPalco = ?;";
         try{
+
             pst = con.prepareStatement(sql);
             pst.setString(1, txtCodigoCompraPalco.getText());
             rs = pst.executeQuery();
-            
+            System.out.println("El RS es: "+rs.getString(3));
             if(rs.next()){
-                String sql2 = "INSERT INTO entradasPalcos (nombre,cedula,email,telefono,codigoPalco,nombrePalco) VALUES (?,?,?,?,?,?);";
-                pst = con.prepareStatement(sql2);
-                pst.setString(1, txtNombreCompraPalco.getText());
-                pst.setString(2, txtCedulaCompraPalco.getText());
-                pst.setString(3, txtEmailCompraPalco.getText());
-                pst.setString(4, txtTelefonoCompraPalco.getText());
-                pst.setString(4, txtCodigoCompraPalco.getText());
-                pst.setString(4, txtCodigoCompraPalco.getText());
+                String sql2 = "INSERT INTO entradasPalcos (nombre,cedula,email,telefono,codigoPalco,nombrePalco,codigoCompra) VALUES (?,?,?,?,?,?,?);";
+                String nombrePalco = rs.getString(3);
+                pst2 = con.prepareStatement(sql2);
+                pst2.setString(1, txtNombreCompraPalco.getText());
+                pst2.setString(2, txtCedulaCompraPalco.getText());
+                pst2.setString(3, txtEmailCompraPalco.getText());
+                pst2.setString(4, txtTelefonoCompraPalco.getText());
+                pst2.setString(5, txtCodigoCompraPalco.getText());
+                pst2.setString(6, rs.getString(3));
+                String codigoReserva = generarCodigoReserva(5);
+                pst2.setString(7, codigoReserva);
               //prueba
-                pst.execute();
+                pst2.execute();
                 con.close();
-                JOptionPane.showMessageDialog(null, "Codigo de palco incorrecto o no disponible.");
+
+            JOptionPane.showMessageDialog(null, "Compra Exitosa, Su codigo de reserva es: "+codigoReserva+" para palco "+rs.getString(3)+" "+txtCodigoCompraPalco);
             }else{
                 JOptionPane.showMessageDialog(null, "Codigo de palco incorrecto o no disponible.");
             }
