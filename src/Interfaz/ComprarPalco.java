@@ -4,7 +4,6 @@
  */
 package Interfaz;
 
-import static Interfaz.ComprarEntrada.generarCodigoReserva;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,6 +23,7 @@ public class ComprarPalco extends javax.swing.JPanel {
     PreparedStatement pst = null;
     ResultSet rs = null;
     PreparedStatement pst2 = null;
+    PreparedStatement pst3 = null;
     
     public static String palcoSeleccionado="";
     
@@ -37,6 +37,27 @@ public class ComprarPalco extends javax.swing.JPanel {
         con = DbConnection.ConnectionDB();
     }
 
+    static String generarCodigoReserva(int n){
+
+        // chose a Character random from this String
+        String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "0123456789";
+
+        // create StringBuffer size of AlphaNumericString
+        StringBuilder sb = new StringBuilder(n);
+
+        for (int i = 0; i < n; i++) {
+
+            // generate a random number between
+            // 0 to AlphaNumericString variable length
+            int index = (int)(AlphaNumericString.length()* Math.random());
+
+            // add Character one by one in end of sb
+            sb.append(AlphaNumericString.charAt(index));
+        }
+
+        return sb.toString();
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -235,34 +256,53 @@ public class ComprarPalco extends javax.swing.JPanel {
         txtCodigoCompraPalco.setText(palcoSeleccionado);
     }//GEN-LAST:event_txtCodigoCompraPalcoActionPerformed
 
+    public int validarCampos(){
+        if(txtNombreCompraPalco.getText().length() == 0 || txtCedulaCompraPalco.getText().length() == 0 ||
+           txtEmailCompraPalco.getText().length() == 0 || txtTelefonoCompraPalco.getText().length() == 0 ||
+           txtCodigoCompraPalco.getText().length() == 0) return 1;
+        else return 0;
+    }
+    
     private void btnComprarPalcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarPalcoActionPerformed
         String sql = "SELECT * FROM palcos WHERE codigoPalco = ?;";
         try{
+            if(validarCampos() == 1) JOptionPane.showMessageDialog(null, "Llene todos los campos.");
+            else{
+                pst = con.prepareStatement(sql);
+                pst.setString(1, txtCodigoCompraPalco.getText());
+                rs = pst.executeQuery();
+                if(rs.next()){
+                    String sql2 = "INSERT INTO entradasPalcos (nombre,cedula,email,telefono,codigoPalco,nombrePalco,codigoCompra) VALUES (?,?,?,?,?,?,?);";
+                    pst2 = con.prepareStatement(sql2);
+                    pst2.setString(1, txtNombreCompraPalco.getText());
+                    pst2.setString(2, txtCedulaCompraPalco.getText());
+                    pst2.setString(3, txtEmailCompraPalco.getText());
+                    pst2.setString(4, txtTelefonoCompraPalco.getText());
+                    pst2.setString(5, txtCodigoCompraPalco.getText());
+                    pst2.setString(6, rs.getString(3));
+                    String codigoReserva = generarCodigoReserva(5);
+                    pst2.setString(7, codigoReserva);
+                    String codigo = txtCodigoCompraPalco.getText();
+                    //prueba
+                    pst2.execute();          
 
-            pst = con.prepareStatement(sql);
-            pst.setString(1, txtCodigoCompraPalco.getText());
-            rs = pst.executeQuery();
-            System.out.println("El RS es: "+rs.getString(3));
-            if(rs.next()){
-                String sql2 = "INSERT INTO entradasPalcos (nombre,cedula,email,telefono,codigoPalco,nombrePalco,codigoCompra) VALUES (?,?,?,?,?,?,?);";
-                String nombrePalco = rs.getString(3);
-                pst2 = con.prepareStatement(sql2);
-                pst2.setString(1, txtNombreCompraPalco.getText());
-                pst2.setString(2, txtCedulaCompraPalco.getText());
-                pst2.setString(3, txtEmailCompraPalco.getText());
-                pst2.setString(4, txtTelefonoCompraPalco.getText());
-                pst2.setString(5, txtCodigoCompraPalco.getText());
-                pst2.setString(6, rs.getString(3));
-                String codigoReserva = generarCodigoReserva(5);
-                pst2.setString(7, codigoReserva);
-              //prueba
-                pst2.execute();
+                    JOptionPane.showMessageDialog(null, "Compra Exitosa, Su codigo de reserva es: "+codigoReserva+" para palco "+rs.getString(3)+" "+codigo);
+                    String sql3="UPDATE palcos SET disponibilidad='Ocupado' WHERE id='"+rs.getInt(1)+"'";
+                    pst3 = con.prepareStatement(sql3);
+                    int rs2= pst3.executeUpdate(); 
+                    if(rs2>0){
+                        System.out.println("Disponibilidad modificada");
+                    }else{
+                        System.out.println("No modificado");
+                    }
+                    
+                    
                 con.close();
-
-            JOptionPane.showMessageDialog(null, "Compra Exitosa, Su codigo de reserva es: "+codigoReserva+" para palco "+rs.getString(3)+" "+txtCodigoCompraPalco);
-            }else{
-                JOptionPane.showMessageDialog(null, "Codigo de palco incorrecto o no disponible.");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Codigo de palco incorrecto o no disponible.");
+                }
             }
+            
         }catch(Exception e){
             System.out.println("Codigo de palco incorrecto o no disponible. "+e);
         }
