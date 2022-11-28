@@ -34,6 +34,8 @@ public class RegistrarEntrada extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jComboBoxTipo = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -42,6 +44,7 @@ public class RegistrarEntrada extends javax.swing.JPanel {
         txtCodigo = new javax.swing.JTextField();
         txtCedula = new javax.swing.JTextField();
         btnRegistrarEntrada = new javax.swing.JButton();
+        txtRegistrarEntrada = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -49,23 +52,47 @@ public class RegistrarEntrada extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(255, 255, 204));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("REGISTRAR ENTRADA");
+        jLabel1.setText("TIPO");
+
+        jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Zona", "Palco" }));
+        jComboBoxTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxTipoActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel5.setText("REGISTRAR ENTRADA");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(242, 242, 242)
+                .addContainerGap(442, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(248, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jComboBoxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(107, 107, 107))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(27, 27, 27)
+                    .addComponent(jLabel5)
+                    .addContainerGap(465, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jComboBoxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(19, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addContainerGap(16, Short.MAX_VALUE)
+                    .addComponent(jLabel5)
+                    .addGap(9, 9, 9)))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 50));
@@ -101,7 +128,8 @@ public class RegistrarEntrada extends javax.swing.JPanel {
                 btnRegistrarEntradaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistrarEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 190, 40));
+        jPanel1.add(btnRegistrarEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 190, 40));
+        jPanel1.add(txtRegistrarEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 360, 70));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -121,17 +149,37 @@ public class RegistrarEntrada extends javax.swing.JPanel {
 
     private void btnRegistrarEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarEntradaActionPerformed
         try{
-            modelo.setRowCount(0);
             con = DbConnection.ConnectionDB();
-            String sql = "SELECT * FROM baneados;";
+            String TipoZona;
+            if("Palco".equals(jComboBoxTipo.getSelectedItem().toString())){
+                TipoZona = "entradasPalcos";
+            }else{
+                TipoZona = "entradaBasica";
+            }
+            String sql = "SELECT * FROM "+TipoZona+" WHERE cedula = (?) AND codigo = (?);";
             pst = con.prepareStatement(sql);
+            pst.setString(1, txtCedula.getText());
+            pst.setString(2, txtCodigo.getText());
             rs = pst.executeQuery();
-
-            String datos[] = new String[2];
-            while(rs.next()) {
-                datos[0] = rs.getString(1);
-                datos[1] = rs.getString(2);
-                modelo.addRow(datos);
+            if(rs.next()){
+                sql = "SELECT * FROM "+TipoZona+" WHERE cedula = (?) AND usada = 0 AND codigo = (?);";
+                pst = con.prepareStatement(sql);
+                pst.setString(1, txtCedula.getText());
+                pst.setString(2, txtCodigo.getText());
+                rs = pst.executeQuery();
+                if(rs.next()){
+                    sql = "UPDATE "+TipoZona+" SET usada = 1 WHERE cedula = (?) AND codigo = (?); ";
+                    pst = con.prepareStatement(sql);
+                    pst.setString(1, txtCedula.getText());
+                    pst.setString(2, txtCodigo.getText());
+                    pst.execute();
+                    txtRegistrarEntrada.setText("EXITO, puede ingresar."); 
+                }else{
+                    txtRegistrarEntrada.setText("RECHAZADO, la entrada ya ha sido USADA"); 
+                }
+                
+            }else{
+               txtRegistrarEntrada.setText("Cedula o Codigo Invalida."); 
             }
             con.close();
         }catch(Exception e){
@@ -139,18 +187,25 @@ public class RegistrarEntrada extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnRegistrarEntradaActionPerformed
 
+    private void jComboBoxTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxTipoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrarEntrada;
+    private javax.swing.JComboBox<String> jComboBoxTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtCodigo;
+    private javax.swing.JLabel txtRegistrarEntrada;
     // End of variables declaration//GEN-END:variables
 }
