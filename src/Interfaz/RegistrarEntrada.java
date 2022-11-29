@@ -42,6 +42,7 @@ public class RegistrarEntrada extends javax.swing.JPanel {
         txtCodigo = new javax.swing.JTextField();
         txtCedula = new javax.swing.JTextField();
         btnRegistrarEntrada = new javax.swing.JButton();
+        txtRegistrarEntrada = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -101,7 +102,8 @@ public class RegistrarEntrada extends javax.swing.JPanel {
                 btnRegistrarEntradaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistrarEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 190, 40));
+        jPanel1.add(btnRegistrarEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 190, 40));
+        jPanel1.add(txtRegistrarEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 360, 70));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -121,17 +123,17 @@ public class RegistrarEntrada extends javax.swing.JPanel {
 
     private void btnRegistrarEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarEntradaActionPerformed
         try{
-            modelo.setRowCount(0);
             con = DbConnection.ConnectionDB();
-            String sql = "SELECT * FROM baneados;";
+            String sql = "SELECT * FROM entradaBasica WHERE cedula LIKE (?) AND codigo LIKE (?);";
             pst = con.prepareStatement(sql);
+            pst.setString(1, txtCedula.getText());
+            pst.setString(2, txtCodigo.getText());
             rs = pst.executeQuery();
-
-            String datos[] = new String[2];
-            while(rs.next()) {
-                datos[0] = rs.getString(1);
-                datos[1] = rs.getString(2);
-                modelo.addRow(datos);
+//            System.out.println(rs.getRow());
+            if(rs.next()){
+                txtRegistrarEntrada.setText("Registro Exitoso, puede ingresar."); 
+            }else{
+               txtRegistrarEntrada.setText("Cedula o Codigo Invalida."); 
             }
             con.close();
         }catch(Exception e){
@@ -152,5 +154,6 @@ public class RegistrarEntrada extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtCodigo;
+    private javax.swing.JLabel txtRegistrarEntrada;
     // End of variables declaration//GEN-END:variables
 }
