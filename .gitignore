@@ -1,7 +1,4 @@
-build/*
-dist/*
-nbproject/*
+build
+dist
+nbproject
 RoyalTicket_db.db
-*.class
-
-*.properties
