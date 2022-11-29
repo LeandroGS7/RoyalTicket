@@ -124,14 +124,27 @@ public class RegistrarEntrada extends javax.swing.JPanel {
     private void btnRegistrarEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarEntradaActionPerformed
         try{
             con = DbConnection.ConnectionDB();
-            String sql = "SELECT * FROM entradaBasica WHERE cedula LIKE (?) AND codigo LIKE (?);";
+            String sql = "SELECT * FROM entradaBasica WHERE cedula = (?) AND codigo = (?);";
             pst = con.prepareStatement(sql);
             pst.setString(1, txtCedula.getText());
             pst.setString(2, txtCodigo.getText());
             rs = pst.executeQuery();
-//            System.out.println(rs.getRow());
             if(rs.next()){
-                txtRegistrarEntrada.setText("Registro Exitoso, puede ingresar."); 
+                sql = "SELECT * FROM entradaBasica WHERE cedula = (?) AND usada = 0;";
+                pst = con.prepareStatement(sql);
+                pst.setString(1, txtCedula.getText());
+                rs = pst.executeQuery();
+                if(rs.next()){
+                    sql = "UPDATE entradaBasica SET usada = 1 WHERE cedula = (?) AND codigo = (?); ";
+                    pst = con.prepareStatement(sql);
+                    pst.setString(1, txtCedula.getText());
+                    pst.setString(2, txtCodigo.getText());
+                    pst.execute();
+                    txtRegistrarEntrada.setText("Registro Exitoso, puede ingresar."); 
+                }else{
+                    txtRegistrarEntrada.setText("RECHAZADO, la entrada ya ha sido USADA"); 
+                }
+                
             }else{
                txtRegistrarEntrada.setText("Cedula o Codigo Invalida."); 
             }
