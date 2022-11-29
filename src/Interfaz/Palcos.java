@@ -5,6 +5,7 @@
 package Interfaz;
 
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -29,6 +30,8 @@ public class Palcos extends javax.swing.JFrame {
     public String getPalcoSelected(){
         return this.palcoSelected;
     }*/
+    
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -1477,7 +1480,7 @@ public class Palcos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton A1;
+    public javax.swing.JButton A1;
     private javax.swing.JButton A2;
     private javax.swing.JButton A3;
     private javax.swing.JButton A4;
