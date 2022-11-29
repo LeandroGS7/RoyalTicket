@@ -272,7 +272,7 @@ public class ComprarPalco extends javax.swing.JPanel {
                 pst.setString(1, txtCodigoCompraPalco.getText());
                 rs = pst.executeQuery();
                 if(rs.next()){
-                    String sql2 = "INSERT INTO entradasPalcos (nombre,cedula,email,telefono,codigoPalco,nombrePalco,codigoCompra) VALUES (?,?,?,?,?,?,?);";
+                    String sql2 = "INSERT INTO entradasPalcos (nombre,cedula,email,telefono,codigoPalco,nombrePalco,codigo) VALUES (?,?,?,?,?,?,?);";
                     pst2 = con.prepareStatement(sql2);
                     pst2.setString(1, txtNombreCompraPalco.getText());
                     pst2.setString(2, txtCedulaCompraPalco.getText());
