@@ -53,7 +53,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="60" y="30" width="260" height="30"/>
+              <AbsoluteConstraints x="30" y="30" width="260" height="30"/>
             </Constraint>
           </Constraints>
 
@@ -112,7 +112,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="60" y="120" width="260" height="-1"/>
+              <AbsoluteConstraints x="30" y="120" width="260" height="-1"/>
             </Constraint>
           </Constraints>
 
@@ -149,6 +149,9 @@
                   <Border info="null"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtTarjetaVisaMousePressed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -168,7 +171,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="60" y="160" width="130" height="-1"/>
+              <AbsoluteConstraints x="30" y="160" width="130" height="-1"/>
             </Constraint>
           </Constraints>
 
@@ -217,6 +220,7 @@
                 </Property>
               </Properties>
               <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtMesTarjetaMousePressed"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMesTarjetaActionPerformed"/>
               </Events>
             </Component>
@@ -233,6 +237,7 @@
                 </Property>
               </Properties>
               <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtA&#xf1;oTarjetaMousePressed"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtA&#xf1;oTarjetaActionPerformed"/>
               </Events>
             </Component>
@@ -254,7 +259,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="190" y="160" width="130" height="-1"/>
+              <AbsoluteConstraints x="160" y="160" width="130" height="-1"/>
             </Constraint>
           </Constraints>
 
@@ -291,6 +296,9 @@
                   <Border info="null"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtCVCMousePressed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -316,7 +324,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="100" y="230" width="170" height="-1"/>
+              <AbsoluteConstraints x="80" y="220" width="170" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

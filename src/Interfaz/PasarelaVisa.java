@@ -105,7 +105,7 @@ public class PasarelaVisa extends javax.swing.JPanel {
             .addComponent(txtCorreoVisa)
         );
 
-        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 260, 30));
+        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 260, 30));
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
@@ -114,6 +114,11 @@ public class PasarelaVisa extends javax.swing.JPanel {
 
         txtTarjetaVisa.setText("Número de tárjeta");
         txtTarjetaVisa.setBorder(null);
+        txtTarjetaVisa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtTarjetaVisaMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -131,7 +136,7 @@ public class PasarelaVisa extends javax.swing.JPanel {
             .addComponent(txtTarjetaVisa)
         );
 
-        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 260, -1));
+        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 260, -1));
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
@@ -140,6 +145,11 @@ public class PasarelaVisa extends javax.swing.JPanel {
 
         txtMesTarjeta.setText("MM ");
         txtMesTarjeta.setBorder(null);
+        txtMesTarjeta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtMesTarjetaMousePressed(evt);
+            }
+        });
         txtMesTarjeta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMesTarjetaActionPerformed(evt);
@@ -150,6 +160,11 @@ public class PasarelaVisa extends javax.swing.JPanel {
 
         txtAñoTarjeta.setText("YY");
         txtAñoTarjeta.setBorder(null);
+        txtAñoTarjeta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtAñoTarjetaMousePressed(evt);
+            }
+        });
         txtAñoTarjeta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAñoTarjetaActionPerformed(evt);
@@ -181,7 +196,7 @@ public class PasarelaVisa extends javax.swing.JPanel {
                     .addComponent(txtAñoTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 130, -1));
+        jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 130, -1));
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
@@ -190,6 +205,11 @@ public class PasarelaVisa extends javax.swing.JPanel {
 
         txtCVC.setText("CVC");
         txtCVC.setBorder(null);
+        txtCVC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtCVCMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -207,7 +227,7 @@ public class PasarelaVisa extends javax.swing.JPanel {
             .addComponent(txtCVC)
         );
 
-        jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 130, -1));
+        jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 130, -1));
 
         btnPagar.setBackground(new java.awt.Color(204, 255, 255));
         btnPagar.setText("PAGAR");
@@ -217,7 +237,7 @@ public class PasarelaVisa extends javax.swing.JPanel {
                 btnPagarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 170, -1));
+        jPanel2.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 170, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -272,7 +292,7 @@ public class PasarelaVisa extends javax.swing.JPanel {
             else{
                 if(!validarCorreo(txtCorreoVisa.getText()))
                             JOptionPane.showMessageDialog(null, "Correo no válido");
-                else
+                else{
                     pst2 = con.prepareStatement(sql2);
                     pst2.setString(1, this.nombre);
                     pst2.setString(2, this.cedula);
@@ -298,8 +318,9 @@ public class PasarelaVisa extends javax.swing.JPanel {
                     }else{
                         System.out.println("No modificado");
                     }
-                        
+                  
                 con.close();
+                }
             }
         }catch(Exception e){
             System.out.println("Codigo de palco incorrecto o no disponible. "+e);
@@ -312,6 +333,22 @@ public class PasarelaVisa extends javax.swing.JPanel {
     private void txtCorreoVisaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCorreoVisaMousePressed
         txtCorreoVisa.setText("");
     }//GEN-LAST:event_txtCorreoVisaMousePressed
+
+    private void txtTarjetaVisaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTarjetaVisaMousePressed
+        txtTarjetaVisa.setText("");
+    }//GEN-LAST:event_txtTarjetaVisaMousePressed
+
+    private void txtMesTarjetaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMesTarjetaMousePressed
+        txtMesTarjeta.setText("");
+    }//GEN-LAST:event_txtMesTarjetaMousePressed
+
+    private void txtAñoTarjetaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAñoTarjetaMousePressed
+        txtAñoTarjeta.setText("");
+    }//GEN-LAST:event_txtAñoTarjetaMousePressed
+
+    private void txtCVCMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCVCMousePressed
+        txtCVC.setText("");
+    }//GEN-LAST:event_txtCVCMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

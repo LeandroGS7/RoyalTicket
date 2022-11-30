@@ -146,6 +146,9 @@
                   <Border info="null"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtTarjetaMasterMousePressed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -288,6 +291,9 @@
                   <Border info="null"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtCVCMousePressed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

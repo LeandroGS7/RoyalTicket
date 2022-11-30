@@ -156,6 +156,8 @@ public class RegistrarEntrada extends javax.swing.JPanel {
             }else{
                 TipoZona = "entradaBasica";
             }
+            
+            
             String sql = "SELECT * FROM "+TipoZona+" WHERE cedula = (?) AND codigo = (?);";
             pst = con.prepareStatement(sql);
             pst.setString(1, txtCedula.getText());
@@ -177,11 +179,10 @@ public class RegistrarEntrada extends javax.swing.JPanel {
                 }else{
                     txtRegistrarEntrada.setText("RECHAZADO, la entrada ya ha sido USADA"); 
                 }
-                
-            }else{
-               txtRegistrarEntrada.setText("Cedula o Codigo Invalida."); 
             }
+        
             con.close();
+    
         }catch(Exception e){
             System.out.println("Baneo fallido "+e);
         }

@@ -109,6 +109,11 @@ public class PasarelaMasterCard extends javax.swing.JPanel {
 
         txtTarjetaMaster.setText("Número de tárjeta");
         txtTarjetaMaster.setBorder(null);
+        txtTarjetaMaster.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtTarjetaMasterMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -185,6 +190,11 @@ public class PasarelaMasterCard extends javax.swing.JPanel {
 
         txtCVC.setText("CVC");
         txtCVC.setBorder(null);
+        txtCVC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtCVCMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -236,7 +246,7 @@ public class PasarelaMasterCard extends javax.swing.JPanel {
             else{
                 if(!validarCorreo(txtCorreoMaster.getText()))
                             JOptionPane.showMessageDialog(null, "Correo no válido");
-                else
+                else{
                     pst2 = con.prepareStatement(sql2);
                     pst2.setString(1, this.nombre);
                     pst2.setString(2, this.cedula);
@@ -262,8 +272,9 @@ public class PasarelaMasterCard extends javax.swing.JPanel {
                     }else{
                         System.out.println("No modificado");
                     }
-                        
+                    
                 con.close();
+                }
             }
         }catch(Exception e){
             System.out.println("Codigo de palco incorrecto o no disponible. "+e);
@@ -271,12 +282,20 @@ public class PasarelaMasterCard extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtAñoTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAñoTarjetaActionPerformed
-        // TODO add your handling code here:
+        txtAñoTarjeta.setText("");
     }//GEN-LAST:event_txtAñoTarjetaActionPerformed
 
     private void txtMesTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMesTarjetaActionPerformed
-        // TODO add your handling code here:
+        txtMesTarjeta.setText("");
     }//GEN-LAST:event_txtMesTarjetaActionPerformed
+
+    private void txtTarjetaMasterMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTarjetaMasterMousePressed
+        txtTarjetaMaster.setText("");
+    }//GEN-LAST:event_txtTarjetaMasterMousePressed
+
+    private void txtCVCMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCVCMousePressed
+        txtCVC.setText("");
+    }//GEN-LAST:event_txtCVCMousePressed
 
     
     Pattern pattern = Pattern

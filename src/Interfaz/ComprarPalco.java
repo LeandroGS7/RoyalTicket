@@ -346,8 +346,8 @@ public class ComprarPalco extends javax.swing.JPanel {
                             }else{
                                 System.out.println("No modificado");
                             }
-                        
-                            con.close();*/
+                        */
+                            con.close();
                         
                     }
                 }else{
