@@ -4,6 +4,9 @@
  */
 package Interfaz;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -18,8 +21,232 @@ public class Palcos extends javax.swing.JFrame {
      */
     public String palcoSelected; 
     
+    List<JButton> myArrayList = new ArrayList<>(); 
+    
     public Palcos() {
         initComponents();
+        //crearArray();
+    }
+    
+    
+    
+    
+    
+    /*{getA1(), getA2(), getA3(),getA4(),getA5(),getA6(),getA7(),getA8(),
+    getB1(),getB2(),getB3(),getB4(),getB5(),getB6(),getB7(),getB8(), getC1(),getC2(),getC3(),getC4(),
+    getC5(),getC6(),getC6(),getC7(),getC8(),getD1(),getD2(),getD3(),getD4(),getD5(),getD6(),getD7(),
+    getD8(),getE1(),getE2(),getE3(),getE4(),getE5(),getE6(),getE7(),getE8(),getF1(),getF2(),getF3(),
+    getF4(),getF5(),getF6(),getF7(),getF8()};*/
+  
+    /*
+    public void crearArray(){
+        myArrayList.add(getA1()); myArrayList.add(getA2()); myArrayList.add(getA3()); myArrayList.add(getA4());
+        myArrayList.add(getA5()); myArrayList.add(getA6()); myArrayList.add(getA7()); myArrayList.add(getA8());
+        myArrayList.add(getB1()); myArrayList.add(getB2()); myArrayList.add(getB3()); myArrayList.add(getB4());
+        myArrayList.add(getB5()); myArrayList.add(getB6()); myArrayList.add(getB7()); myArrayList.add(getB8());
+        myArrayList.add(getC1()); myArrayList.add(getC2()); myArrayList.add(getC3()); myArrayList.add(getC4());
+        myArrayList.add(getC5()); myArrayList.add(getC6()); myArrayList.add(getC7()); myArrayList.add(getC8());
+        myArrayList.add(getD1()); myArrayList.add(getD2()); myArrayList.add(getD3()); myArrayList.add(getD4());
+        myArrayList.add(getD5()); myArrayList.add(getD6()); myArrayList.add(getD7()); myArrayList.add(getD8());
+        myArrayList.add(getE1()); myArrayList.add(getE2()); myArrayList.add(getE3()); myArrayList.add(getE4());
+        myArrayList.add(getE5()); myArrayList.add(getE6()); myArrayList.add(getE7()); myArrayList.add(getE8());
+        myArrayList.add(getF1()); myArrayList.add(getF2()); myArrayList.add(getF3()); myArrayList.add(getF4());
+        myArrayList.add(getF5()); myArrayList.add(getF6()); myArrayList.add(getF7()); myArrayList.add(getF8());     
+    }
+    
+    public void actualizarPalcos(){
+        System.out.println("boton 1 "+myArrayList.get(0).getName());
+    }*/
+    
+    public JButton getF8() {
+        return this.F8;
+    }
+
+    public JButton getF7() {
+        return this.F7;
+    }
+
+    public JButton getF6() {
+        return this.F6;
+    }
+
+    public JButton getF5() {
+        return this.F5;
+    }
+
+    public JButton getF4() {
+        return this.F4;
+    }
+
+    public JButton getF3() {
+        return this.F3;
+    }
+
+    public JButton getF2() {
+        return this.F2;
+    }
+
+    public JButton getF1() {
+        return this.F1;
+    }
+
+    public JButton getE8() {
+        return this.E8;
+    }
+
+    public JButton getE7() {
+        return this.E7;
+    }
+
+    public JButton getE6() {
+        return this.E6;
+    }
+
+    public JButton getE5() {
+        return this.E5;
+    }
+
+    public JButton getE4() {
+        return this.E4;
+    }
+
+    public JButton getE3() {
+        return this.E3;
+    }
+
+    public JButton getE2() {
+        return this.E2;
+    }
+
+    public JButton getE1() {
+        return this.E1;
+    }
+
+    public JButton getD8() {
+        return this.D8;
+    }
+
+    public JButton getD7() {
+        return this.D7;
+    }
+
+    public JButton getD6() {
+        return this.D6;
+    }
+
+    public JButton getD5() {
+        return this.D5;
+    }
+
+    public JButton getD4() {
+        return this.D4;
+    }
+
+    public JButton getD3() {
+        return this.D3;
+    }
+
+    public JButton getD2() {
+        return this.D2;
+    }
+
+    public JButton getD1() {
+        return this.D1;
+    }
+
+    public JButton getC8() {
+        return this.C8;
+    }
+
+    public JButton getC7() {
+        return this.C7;
+    }
+
+    public JButton getC6() {
+        return this.C6;
+    }
+
+    public JButton getC5() {
+        return this.C5;
+    }
+
+    public JButton getC4() {
+        return this.C4;
+    }
+
+    public JButton getC3() {
+        return this.C3;
+    }
+
+    public JButton getC2() {
+        return this.C2;
+    }
+
+    public JButton getC1() {
+        return this.C1;
+    }
+
+    public JButton getB8() {
+        return this.B8;
+    }
+
+    public JButton getB7() {
+        return this.B7;
+    }
+
+    public JButton getB6() {
+        return this.B6;
+    }
+
+    public JButton getB5() {
+        return this.B5;
+    }
+
+    public JButton getB4() {
+        return this.B4;
+    }
+
+    public JButton getB3() {
+        return this.B3;
+    }
+
+    public JButton getB2() {
+        return this.B2;
+    }
+
+    public JButton getB1() {
+        return this.B1;
+    }
+
+    public JButton getA8() {
+        return this.A8;
+    }
+
+    public JButton getA7() {
+        return this.A7;
+    }
+
+    public JButton getA6() {
+        return this.A6;
+    }
+
+    public JButton getA5() {
+        return this.A5;
+    }
+
+    public JButton getA4() {
+        return this.A4;
+    }
+
+    public JButton getA3() {
+        return this.A3;
+    }
+    public JButton getA2() {
+        return this.A2;
+    }
+
+    public JButton getA1() {
+        return this.A1;
     }
     
     /*
@@ -128,7 +355,7 @@ public class Palcos extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

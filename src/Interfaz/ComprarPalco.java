@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 /**
@@ -289,6 +290,11 @@ public class ComprarPalco extends javax.swing.JPanel {
     
     private void btnComprarPalcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarPalcoActionPerformed
         String sql = "SELECT * FROM palcos WHERE codigoPalco = ?;";
+        PasarelaPagos pasarela = new PasarelaPagos();
+        String email = txtEmailCompraPalco.getText();
+        String codigoReserva = generarCodigoReserva(5);
+        
+        
         try{
             
             if(validarCampos() == 1) JOptionPane.showMessageDialog(null, "Llene todos los campos.");
@@ -303,9 +309,16 @@ public class ComprarPalco extends javax.swing.JPanel {
                     else{
                         if(!validarCorreo(txtEmailCompraPalco.getText()))
                             JOptionPane.showMessageDialog(null, "Correo no válido");
-                        else
+                        
                         if(validarCorreo(txtEmailCompraPalco.getText())){
-                            String sql2 = "INSERT INTO entradasPalcos (nombre,cedula,email,telefono,codigoPalco,nombrePalco,codigo) VALUES (?,?,?,?,?,?,?);";
+                            pasarela.recepciónInformacion(txtNombreCompraPalco.getText(), txtCedulaCompraPalco.getText(),
+                            email,txtTelefonoCompraPalco.getText() , txtCodigoCompraPalco.getText(), rs.getString(3), codigoReserva, rs.getInt(1));
+                            pasarela.setVisible(true);
+                            
+                        }
+                            
+                            
+                            /*
                             pst2 = con.prepareStatement(sql2);
                             pst2.setString(1, txtNombreCompraPalco.getText());
                             pst2.setString(2, txtCedulaCompraPalco.getText());
@@ -313,7 +326,7 @@ public class ComprarPalco extends javax.swing.JPanel {
                             pst2.setString(4, txtTelefonoCompraPalco.getText());
                             pst2.setString(5, txtCodigoCompraPalco.getText());
                             pst2.setString(6, rs.getString(3));
-                            String codigoReserva = generarCodigoReserva(5);
+                            
                             pst2.setString(7, codigoReserva);
                             String codigo = txtCodigoCompraPalco.getText();
                         
@@ -325,12 +338,17 @@ public class ComprarPalco extends javax.swing.JPanel {
                             int rs2= pst3.executeUpdate(); 
                             if(rs2>0){
                                 System.out.println("Disponibilidad modificada");
+                                
+                                //tablero.actualizarPalcos();
+                                
+                                //palcoSeleccionado.setText("-");
+                                
                             }else{
                                 System.out.println("No modificado");
                             }
                         
-                            con.close();
-                        }
+                            con.close();*/
+                        
                     }
                 }else{
                     JOptionPane.showMessageDialog(null, "Codigo de palco incorrecto o no disponible.");
@@ -338,8 +356,9 @@ public class ComprarPalco extends javax.swing.JPanel {
             }
             
         }catch(Exception e){
-            System.out.println("Codigo de palco incorrecto o no disponible. "+e);
+            System.out.println("ERROR "+e);
         }
+        /**/
     }//GEN-LAST:event_btnComprarPalcoActionPerformed
 
     private void btnVerPalcosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerPalcosActionPerformed
@@ -376,10 +395,10 @@ public class ComprarPalco extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JLabel labelCedula;
-    private javax.swing.JTextField txtCedulaCompraPalco;
-    private javax.swing.JTextField txtCodigoCompraPalco;
-    private javax.swing.JTextField txtEmailCompraPalco;
-    private javax.swing.JTextField txtNombreCompraPalco;
-    private javax.swing.JTextField txtTelefonoCompraPalco;
+    public javax.swing.JTextField txtCedulaCompraPalco;
+    public javax.swing.JTextField txtCodigoCompraPalco;
+    public javax.swing.JTextField txtEmailCompraPalco;
+    public javax.swing.JTextField txtNombreCompraPalco;
+    public javax.swing.JTextField txtTelefonoCompraPalco;
     // End of variables declaration//GEN-END:variables
 }
