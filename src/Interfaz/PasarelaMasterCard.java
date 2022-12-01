@@ -264,11 +264,6 @@ public class PasarelaMasterCard extends javax.swing.JPanel {
                     int rs2= pst3.executeUpdate(); 
                     if(rs2>0){
                         System.out.println("Disponibilidad modificada");   
-                        cp.txtCedulaCompraPalco.setText("");
-                        cp.txtCodigoCompraPalco.setText("");
-                        cp.txtEmailCompraPalco.setText("");
-                        cp.txtNombreCompraPalco.setText("");
-                        cp.txtTelefonoCompraPalco.setText("");
                     }else{
                         System.out.println("No modificado");
                     }

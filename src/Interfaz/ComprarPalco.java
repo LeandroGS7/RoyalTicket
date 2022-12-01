@@ -22,7 +22,7 @@ public class ComprarPalco extends javax.swing.JPanel {
      * Creates new form ComprarPalco
      */
     
-    Connection con = null;
+    public Connection con = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
     PreparedStatement pst2 = null;
@@ -30,15 +30,33 @@ public class ComprarPalco extends javax.swing.JPanel {
     Palcos tablero = new Palcos();
     public static String palcoSeleccionado="";
     
+    
     public void setPalcoSelected(String palco){
          palcoSeleccionado = palco;  
     }
+    
+    public void limpiarCampos(){
+        this.txtCedulaCompraPalco.setText("");
+        this.txtCodigoCompraPalco.setText("");
+        this.txtEmailCompraPalco.setText("");
+        this.txtNombreCompraPalco.setText("");
+        this.txtTelefonoCompraPalco.setText("");
+    }
+    
  
     
     public ComprarPalco() {
         initComponents();
         con = DbConnection.ConnectionDB();
-        
+    }
+    
+    public void generarConexion(){
+        try{
+            con = DbConnection.ConnectionDB();
+            System.out.println("conexion restaurada");
+        }catch(Exception e){
+            System.out.println("Conexion no restaurada");
+        }
     }
 
     static String generarCodigoReserva(int n){
@@ -92,6 +110,7 @@ public class ComprarPalco extends javax.swing.JPanel {
         btnComprarPalco = new javax.swing.JButton();
         btnVerPalcos = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -228,6 +247,14 @@ public class ComprarPalco extends javax.swing.JPanel {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, -1, -1));
 
+        jButton2.setText("Limpiar");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -272,8 +299,7 @@ public class ComprarPalco extends javax.swing.JPanel {
                 .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                         + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
  
-        // El email a validar
-        String email = "info@programacionextrema.com";
+        
  
         
         
@@ -289,6 +315,7 @@ public class ComprarPalco extends javax.swing.JPanel {
     
     
     private void btnComprarPalcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarPalcoActionPerformed
+        con = DbConnection.ConnectionDB();
         String sql = "SELECT * FROM palcos WHERE codigoPalco = ?;";
         PasarelaPagos pasarela = new PasarelaPagos();
         String email = txtEmailCompraPalco.getText();
@@ -309,12 +336,12 @@ public class ComprarPalco extends javax.swing.JPanel {
                     else{
                         if(!validarCorreo(txtEmailCompraPalco.getText()))
                             JOptionPane.showMessageDialog(null, "Correo no válido");
-                        
+
                         if(validarCorreo(txtEmailCompraPalco.getText())){
                             pasarela.recepciónInformacion(txtNombreCompraPalco.getText(), txtCedulaCompraPalco.getText(),
                             email,txtTelefonoCompraPalco.getText() , txtCodigoCompraPalco.getText(), rs.getString(3), codigoReserva, rs.getInt(1));
                             pasarela.setVisible(true);
-                            
+                            limpiarCampos();
                         }
                             
                             
@@ -347,7 +374,8 @@ public class ComprarPalco extends javax.swing.JPanel {
                                 System.out.println("No modificado");
                             }
                         */
-                            con.close();
+                        con.close();
+                        //this.removeAll();
                         
                     }
                 }else{
@@ -377,11 +405,16 @@ public class ComprarPalco extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        limpiarCampos();
+    }//GEN-LAST:event_jButton2MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnComprarPalco;
     private javax.swing.JButton btnVerPalcos;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

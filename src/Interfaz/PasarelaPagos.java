@@ -16,12 +16,10 @@ public class PasarelaPagos extends javax.swing.JFrame {
 
     /**
      * Creates new form PasarelaPagos
-     */
-    Connection con = null;
+     */    
     
     public PasarelaPagos() {
         initComponents();
-        con = DbConnection.ConnectionDB();
     }
     
     public String nombre;
@@ -223,6 +221,8 @@ public class PasarelaPagos extends javax.swing.JFrame {
         PasarelaPayPal pay = new PasarelaPayPal();
         pay.recepciónInformacion(nombre, cedula, codigo, cedula, codigoPalco, nombrePalco, codigo,idPalco, this.valor);
         ShowPanel(pay);
+        
+        
     }//GEN-LAST:event_jLabel12MouseClicked
 
     /**
@@ -253,11 +253,15 @@ public class PasarelaPagos extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new PasarelaPagos().setVisible(true);
             }
-        });
+        });*/
+    }
+    
+    public void cerrarVentana(){
+        this.dispose();
     }
     
     private void ShowPanel(JPanel p){

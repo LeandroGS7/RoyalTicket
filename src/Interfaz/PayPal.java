@@ -17,8 +17,17 @@ public class PayPal extends javax.swing.JFrame {
     /**
      * Creates new form PayPal
      */
+    public Connection con = null;
+    ComprarPalco menu = new ComprarPalco();
+    
     public PayPal() {
         initComponents();
+        /*
+        try{
+            menu.con.close();
+        }catch(Exception e){
+            System.out.println("Errorcito");
+        }*/
         con = DbConnection.ConnectionDB();
     }
     
@@ -32,7 +41,7 @@ public class PayPal extends javax.swing.JFrame {
     public String valor;
     public int idPalco;
     
-    Connection con = null;
+    //Connection con = null;
     PreparedStatement pst2 = null;
     PreparedStatement pst3 = null;
 
@@ -156,9 +165,11 @@ public class PayPal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarPayPalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIniciarPayPalMouseClicked
+
         String sql2 = "INSERT INTO entradasPalcos (nombre,cedula,email,telefono,codigoPalco,nombrePalco,codigo) VALUES (?,?,?,?,?,?,?);";
         String codigo;
         ComprarPalco cp = new ComprarPalco();
+        PasarelaPagos pasarela = new PasarelaPagos();
         
         try{
             
@@ -178,17 +189,17 @@ public class PayPal extends javax.swing.JFrame {
             pst3 = con.prepareStatement(sql3);
             int rs2= pst3.executeUpdate(); 
             if(rs2>0){
-                System.out.println("Disponibilidad modificada");
-                cp.txtCedulaCompraPalco.setText("");
-                cp.txtCodigoCompraPalco.setText("");
-                cp.txtEmailCompraPalco.setText("");
-                cp.txtNombreCompraPalco.setText("");
-                cp.txtTelefonoCompraPalco.setText("");
+                System.out.println("Disponibilidad modificada");          
+                this.dispose();
+                pasarela.cerrarVentana();
+                con.close();
+                menu.generarConexion();
+                menu.limpiarCampos();
              }else{
                 System.out.println("No modificado");
              }
                   
-             con.close();
+             
                 
             
         }catch(Exception e){

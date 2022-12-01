@@ -21,6 +21,8 @@ public class PasarelaPayPal extends javax.swing.JPanel {
         initComponents();
     }
 
+    public boolean estado;
+    
     public String nombre;
     public String cedula;
     public String email;
@@ -30,6 +32,10 @@ public class PasarelaPayPal extends javax.swing.JPanel {
     public String codigo;
     public int idPalco;
     public String valor;
+    
+    public void setEstado(boolean est){
+        this.estado = est;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -130,12 +136,13 @@ public class PasarelaPayPal extends javax.swing.JPanel {
                     try {
                         
                         Thread.sleep(3*1000);
-                        ventanaPayPal.setVisible(true);
+                        ventanaPayPal.setVisible(true);  
                         btnIniciarPayPal.setText("Iniciar Sesion");
                         
                     }catch (Exception e) {
                         System.out.println(e);
                     }
+                    
                 }
             }
     }//GEN-LAST:event_btnIniciarPayPalMouseClicked
