@@ -41,6 +41,9 @@ public class PayPal extends javax.swing.JFrame {
     public String valor;
     public int idPalco;
     
+    public String zona;
+    public int tipoCompra;
+    
     //Connection con = null;
     PreparedStatement pst2 = null;
     PreparedStatement pst3 = null;
@@ -73,7 +76,7 @@ public class PayPal extends javax.swing.JFrame {
         txtValor2 = new javax.swing.JLabel();
         btnIniciarPayPal = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -164,48 +167,101 @@ public class PayPal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnIniciarPayPalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIniciarPayPalMouseClicked
-
-        String sql2 = "INSERT INTO entradasPalcos (nombre,cedula,email,telefono,codigoPalco,nombrePalco,codigo) VALUES (?,?,?,?,?,?,?);";
-        String codigo;
-        ComprarPalco cp = new ComprarPalco();
-        PasarelaPagos pasarela = new PasarelaPagos();
+        public void recepciónInformacion(String nom, String ced, String correo, String tel, String codPal, String nomPal, String cod,int idPalco,String valor){
+        this.nombre = nom;
+        this.cedula = ced;
+        this.email = correo;
+        this.telefono = tel;
+        this.codigoPalco = codPal;
+        this.nombrePalco = nomPal;
+        this.codigo = cod;
+        this.valor = valor;
+        this.idPalco = idPalco;
         
-        try{
+        txtValor.setText("$ "+valor);
+        txtSaludo.setText("Hola de nuevo "+nombre);
+        txtValor2.setText("$ "+valor);
+        
+    }
+    
+    public void recepcionInformacionZonas(String nom, String ced, String correo, String tel, String zona, String codigo){
+        this.nombre = nom;
+        this.cedula = ced;
+        this.email = correo;
+        this.telefono = tel;
+        this.zona = zona;
+        this.codigo = codigo;
+        this.valor = "800.000";
+        
+        this.tipoCompra = 2;
+        
+        txtValor.setText("$ "+this.valor);
+        txtSaludo.setText("Hola de nuevo "+nom);
+        txtValor2.setText("$ "+this.valor);
+    }
+    
+    private void btnIniciarPayPalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIniciarPayPalMouseClicked
+        PasarelaPagos pasarela = new PasarelaPagos();
+        if(this.tipoCompra==1){
+            String sql2 = "INSERT INTO entradasPalcos (nombre,cedula,email,telefono,codigoPalco,nombrePalco,codigo) VALUES (?,?,?,?,?,?,?);";
+            String codigo;
+            ComprarPalco cp = new ComprarPalco();
             
-            pst2 = con.prepareStatement(sql2);
-            pst2.setString(1, this.nombre);
-            pst2.setString(2, this.cedula);
-            pst2.setString(3, this.email);
-            pst2.setString(4, this.telefono);
-            pst2.setString(5, this.codigoPalco);
-            pst2.setString(6, this.nombrePalco);
-            pst2.setString(7, this.codigo);
+        
+            try{
+            
+                pst2 = con.prepareStatement(sql2);
+                pst2.setString(1, this.nombre);
+                pst2.setString(2, this.cedula);
+                pst2.setString(3, this.email);
+                pst2.setString(4, this.telefono);
+                pst2.setString(5, this.codigoPalco);
+                pst2.setString(6, this.nombrePalco);
+                pst2.setString(7, this.codigo);
                        
-            pst2.execute();          
+                pst2.execute();          
 
-            JOptionPane.showMessageDialog(null, "Compra Exitosa, Su codigo de reserva es: "+this.codigo+" para palco "+this.nombrePalco+" "+this.codigoPalco);
-            String sql3="UPDATE palcos SET disponibilidad='Ocupado' WHERE id='"+this.idPalco+"'";
-            pst3 = con.prepareStatement(sql3);
-            int rs2= pst3.executeUpdate(); 
-            if(rs2>0){
-                System.out.println("Disponibilidad modificada");          
-                this.dispose();
+                JOptionPane.showMessageDialog(null, "Compra Exitosa, Su codigo de reserva es: "+this.codigo+" para palco "+this.nombrePalco+" "+this.codigoPalco);
+                String sql3="UPDATE palcos SET disponibilidad='Ocupado' WHERE id='"+this.idPalco+"'";
+                pst3 = con.prepareStatement(sql3);
+                int rs2= pst3.executeUpdate(); 
+                if(rs2>0){
+                    System.out.println("Disponibilidad modificada");          
+                    this.dispose();
+                    pasarela.cerrarVentana();
+                    con.close();
+                    menu.generarConexion();
+                    menu.limpiarCampos();
+                }else{
+                    System.out.println("No modificado");
+                }
+
+            }catch(Exception e){
+                System.out.println("Codigo de palco incorrecto o no disponible. "+e);
+            }
+        }
+        if(this.tipoCompra==2){
+            try{
+            String sql = "INSERT INTO entradaBasica (cedula, telefono, email, nombre, zona, codigo) VALUES (?,?,?,?,?,?);";
+                pst2 = con.prepareStatement(sql);
+                pst2.setString(1, this.cedula);
+                pst2.setString(3, this.email);
+                pst2.setString(2, this.telefono);
+                pst2.setString(4, this.nombre);
+                pst2.setString(5, this.zona);
+                pst2.setString(6, this.codigo);
+                pst2.execute();
+                JOptionPane.showMessageDialog(null, "Compra Exitosa, Su codigo de reserva es: "+this.codigo);
                 pasarela.cerrarVentana();
+                this.dispose();
                 con.close();
                 menu.generarConexion();
                 menu.limpiarCampos();
-             }else{
-                System.out.println("No modificado");
-             }
-                  
-             
                 
-            
-        }catch(Exception e){
-            System.out.println("Codigo de palco incorrecto o no disponible. "+e);
+            }catch(Exception e){
+                System.out.println("Error");
+            }
         }
-        
     }//GEN-LAST:event_btnIniciarPayPalMouseClicked
 
     /**
@@ -244,22 +300,7 @@ public class PayPal extends javax.swing.JFrame {
     }
     
     
-    public void recepciónInformacion(String nom, String ced, String correo, String tel, String codPal, String nomPal, String cod,int idPalco,String valor){
-        this.nombre = nom;
-        this.cedula = ced;
-        this.email = correo;
-        this.telefono = tel;
-        this.codigoPalco = codPal;
-        this.nombrePalco = nomPal;
-        this.codigo = cod;
-        this.valor = valor;
-        this.idPalco = idPalco;
-        
-        txtValor.setText("$ "+valor);
-        txtSaludo.setText("Hola de nuevo "+nombre);
-        txtValor2.setText("$ "+valor);
-        
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciarPayPal;

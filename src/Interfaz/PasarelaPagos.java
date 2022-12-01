@@ -26,14 +26,23 @@ public class PasarelaPagos extends javax.swing.JFrame {
     public String cedula;
     public String email;
     public String telefono;
+    
+    
+    
     public String codigoPalco;
     public String nombrePalco;
-    public String codigo;
+    
     public int idPalco;
     public String valor;
     
+    public String codigo;
+    public int tipoCompra;
+    
+    public String zona;
+    
     
     public void recepciónInformacion(String nom, String ced, String correo, String tel, String codPal, String nomPal, String cod,int idPalco){
+       
         this.nombre = nom;
         this.cedula = ced;
         this.email = correo;
@@ -57,7 +66,22 @@ public class PasarelaPagos extends javax.swing.JFrame {
             this.valor = "3'500.000";    
         }
         
-        txtClienteValor.setText(nomPal+" Valor compra: "+this.valor);
+        txtClienteValor.setText(nomPal+" Valor compra: $"+this.valor);
+        this.tipoCompra = 1;
+    }
+    
+    public void recepcionInformacionZonas(String nom, String ced, String correo, String tel, String zona, String codigo){
+        this.nombre = nom;
+        this.cedula = ced;
+        this.email = correo;
+        this.telefono = tel;
+        this.zona = zona;
+        this.codigo = codigo;
+        this.valor = "800.000";
+        
+        this.tipoCompra = 2;
+        txtClienteInfo.setText(nom+"  C. C: "+ced);
+        txtClienteValor.setText("Valor compra: $"+this.valor);
     }
 
     /**
@@ -207,19 +231,22 @@ public class PasarelaPagos extends javax.swing.JFrame {
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
         PasarelaVisa visa = new PasarelaVisa();
-        visa.recepciónInformacion(nombre, cedula, codigo, cedula, codigoPalco, nombrePalco, codigo,idPalco);
+        if(this.tipoCompra==1)visa.recepciónInformacion(nombre, cedula, codigo, cedula, codigoPalco, nombrePalco, codigo,idPalco);
+        else visa.recepcionInformacionZonas(nombre, cedula,email, telefono, zona, codigo);
         ShowPanel(visa);
     }//GEN-LAST:event_jLabel13MouseClicked
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        PasarelaMasterCard master = new PasarelaMasterCard();
-        master.recepciónInformacion(nombre, cedula, codigo, cedula, codigoPalco, nombrePalco, codigo,idPalco);
+        PasarelaMasterCard master = new PasarelaMasterCard();   
+        if(this.tipoCompra==1)master.recepciónInformacion(nombre, cedula, codigo, cedula, codigoPalco, nombrePalco, codigo,idPalco);
+        else master.recepcionInformacionZonas(nombre, cedula,email, telefono, zona, codigo);
         ShowPanel(master);
     }//GEN-LAST:event_jLabel14MouseClicked
 
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
         PasarelaPayPal pay = new PasarelaPayPal();
-        pay.recepciónInformacion(nombre, cedula, codigo, cedula, codigoPalco, nombrePalco, codigo,idPalco, this.valor);
+        if(this.tipoCompra==1)pay.recepciónInformacion(nombre, cedula, codigo, cedula, codigoPalco, nombrePalco, codigo,idPalco, this.valor);
+        else pay.recepcionInformacionZonas(nombre, cedula,email, telefono, zona, codigo);
         ShowPanel(pay);
         
         

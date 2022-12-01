@@ -33,6 +33,9 @@ public class PasarelaPayPal extends javax.swing.JPanel {
     public int idPalco;
     public String valor;
     
+    public int tipoCompra;
+    public String zona;
+    
     public void setEstado(boolean est){
         this.estado = est;
     }
@@ -125,7 +128,8 @@ public class PasarelaPayPal extends javax.swing.JPanel {
 
     private void btnIniciarPayPalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIniciarPayPalMouseClicked
         PayPal ventanaPayPal = new PayPal();
-        ventanaPayPal.recepciónInformacion(nombre, cedula, email, telefono, codigoPalco, nombrePalco, codigo, idPalco, valor);
+        if(this.tipoCompra==1){ventanaPayPal.recepciónInformacion(nombre, cedula, email, telefono, codigoPalco, nombrePalco, codigo, idPalco, valor);}
+        if(this.tipoCompra==2){ventanaPayPal.recepcionInformacionZonas(nombre, cedula, email, telefono, zona, codigo);}
         if(!validarCampos()) JOptionPane.showMessageDialog(null, "Llene todos los campos.");
             
             else{
@@ -135,7 +139,7 @@ public class PasarelaPayPal extends javax.swing.JPanel {
                     btnIniciarPayPal.setText("Iniciando ...");
                     try {
                         
-                        Thread.sleep(3*1000);
+                        Thread.sleep(2*1000);
                         ventanaPayPal.setVisible(true);  
                         btnIniciarPayPal.setText("Iniciar Sesion");
                         
@@ -158,6 +162,18 @@ public class PasarelaPayPal extends javax.swing.JPanel {
         this.idPalco = idPalco;
         this.valor = valor;
         txtValor.setText(valor);
+    }
+    
+    public void recepcionInformacionZonas(String nom, String ced, String correo, String tel, String zona, String codigo){
+        this.nombre = nom;
+        this.cedula = ced;
+        this.email = correo;
+        this.telefono = tel;
+        this.zona = zona;
+        this.codigo = codigo;
+        this.valor = "800.000";
+        
+        this.tipoCompra = 2;
     }
 
     Pattern pattern = Pattern

@@ -25,6 +25,11 @@ public class PasarelaMasterCard extends javax.swing.JPanel {
     public String codigo;
     public int idPalco;
     
+    public int tipoCompra;
+    public String valor;
+    
+    public String zona;
+    
     Connection con = null;
     PreparedStatement pst2 = null;
     PreparedStatement pst3 = null;
@@ -45,6 +50,18 @@ public class PasarelaMasterCard extends javax.swing.JPanel {
         this.nombrePalco = nomPal;
         this.codigo = cod;
         this.idPalco = idPalco;
+    }
+    
+    public void recepcionInformacionZonas(String nom, String ced, String correo, String tel, String zona, String codigo){
+        this.nombre = nom;
+        this.cedula = ced;
+        this.email = correo;
+        this.telefono = tel;
+        this.zona = zona;
+        this.codigo = codigo;
+        this.valor = "800.000";
+        
+        this.tipoCompra = 2;
     }
 
     /**
@@ -237,42 +254,61 @@ public class PasarelaMasterCard extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String sql2 = "INSERT INTO entradasPalcos (nombre,cedula,email,telefono,codigoPalco,nombrePalco,codigo) VALUES (?,?,?,?,?,?,?);";
-        String codigo;
-        ComprarPalco cp = new ComprarPalco();
-        try{
-            if(!validarCampos()) JOptionPane.showMessageDialog(null, "Llene todos los campos.");
+        if(this.tipoCompra==1){
+            String sql2 = "INSERT INTO entradasPalcos (nombre,cedula,email,telefono,codigoPalco,nombrePalco,codigo) VALUES (?,?,?,?,?,?,?);";
+            String codigo;
+            ComprarPalco cp = new ComprarPalco();
+            try{
+                if(!validarCampos()) JOptionPane.showMessageDialog(null, "Llene todos los campos.");
             
-            else{
-                if(!validarCorreo(txtCorreoMaster.getText()))
-                            JOptionPane.showMessageDialog(null, "Correo no válido");
                 else{
-                    pst2 = con.prepareStatement(sql2);
-                    pst2.setString(1, this.nombre);
-                    pst2.setString(2, this.cedula);
-                    pst2.setString(3, this.email);
-                    pst2.setString(4, this.telefono);
-                    pst2.setString(5, this.codigoPalco);
-                    pst2.setString(6, this.nombrePalco);
-                    pst2.setString(7, this.codigo);
+                    if(!validarCorreo(txtCorreoMaster.getText()))
+                        JOptionPane.showMessageDialog(null, "Correo no válido");
+                    else{
+                        pst2 = con.prepareStatement(sql2);
+                        pst2.setString(1, this.nombre);
+                        pst2.setString(2, this.cedula);
+                        pst2.setString(3, this.email);
+                        pst2.setString(4, this.telefono);
+                        pst2.setString(5, this.codigoPalco);
+                        pst2.setString(6, this.nombrePalco);
+                        pst2.setString(7, this.codigo);
                         
-                    pst2.execute();          
+                        pst2.execute();          
 
-                    JOptionPane.showMessageDialog(null, "Compra Exitosa, Su codigo de reserva es: "+this.codigo+" para palco "+this.nombrePalco+" "+this.codigoPalco);
-                    String sql3="UPDATE palcos SET disponibilidad='Ocupado' WHERE id='"+this.idPalco+"'";
-                    pst3 = con.prepareStatement(sql3);
-                    int rs2= pst3.executeUpdate(); 
-                    if(rs2>0){
-                        System.out.println("Disponibilidad modificada");   
-                    }else{
-                        System.out.println("No modificado");
+                        JOptionPane.showMessageDialog(null, "Compra Exitosa, Su codigo de reserva es: "+this.codigo+" para palco "+this.nombrePalco+" "+this.codigoPalco);
+                        String sql3="UPDATE palcos SET disponibilidad='Ocupado' WHERE id='"+this.idPalco+"'";
+                        pst3 = con.prepareStatement(sql3);
+                        int rs2= pst3.executeUpdate(); 
+                        if(rs2>0){
+                            System.out.println("Disponibilidad modificada");            
+                        }else{
+                            System.out.println("No modificado");
+                        }
+                  
+                //con.close();
                     }
-                    
-                con.close();
                 }
+            }catch(Exception e){
+                System.out.println("Codigo de palco incorrecto o no disponible. "+e);
             }
-        }catch(Exception e){
-            System.out.println("Codigo de palco incorrecto o no disponible. "+e);
+        }
+        if(this.tipoCompra==2){
+            
+            try{
+                String sql = "INSERT INTO entradaBasica (cedula, telefono, email, nombre, zona, codigo) VALUES (?,?,?,?,?,?);";
+                pst2 = con.prepareStatement(sql);
+                pst2.setString(1, this.cedula);
+                pst2.setString(3, this.email);
+                pst2.setString(2, this.telefono);
+                pst2.setString(4, this.nombre);
+                pst2.setString(5, this.zona);
+                pst2.setString(6, this.codigo);
+                pst2.execute();
+                JOptionPane.showMessageDialog(null, "Compra Exitosa, Su codigo de reserva es: "+this.codigo);
+            }catch(Exception e){
+                System.out.println("Error");
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
