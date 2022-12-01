@@ -36,6 +36,8 @@ public class PasarelaPayPal extends javax.swing.JPanel {
     public int tipoCompra;
     public String zona;
     
+    
+    
     public void setEstado(boolean est){
         this.estado = est;
     }
@@ -130,6 +132,7 @@ public class PasarelaPayPal extends javax.swing.JPanel {
         PayPal ventanaPayPal = new PayPal();
         if(this.tipoCompra==1){ventanaPayPal.recepciónInformacion(nombre, cedula, email, telefono, codigoPalco, nombrePalco, codigo, idPalco, valor);}
         if(this.tipoCompra==2){ventanaPayPal.recepcionInformacionZonas(nombre, cedula, email, telefono, zona, codigo);}
+        
         if(!validarCampos()) JOptionPane.showMessageDialog(null, "Llene todos los campos.");
             
             else{
@@ -162,6 +165,8 @@ public class PasarelaPayPal extends javax.swing.JPanel {
         this.idPalco = idPalco;
         this.valor = valor;
         txtValor.setText(valor);
+        
+        this.tipoCompra=1;
     }
     
     public void recepcionInformacionZonas(String nom, String ced, String correo, String tel, String zona, String codigo){

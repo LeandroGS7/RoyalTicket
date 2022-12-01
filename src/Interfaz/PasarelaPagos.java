@@ -231,8 +231,8 @@ public class PasarelaPagos extends javax.swing.JFrame {
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
         PasarelaVisa visa = new PasarelaVisa();
-        if(this.tipoCompra==1)visa.recepciónInformacion(nombre, cedula, codigo, cedula, codigoPalco, nombrePalco, codigo,idPalco);
-        else visa.recepcionInformacionZonas(nombre, cedula,email, telefono, zona, codigo);
+        if(this.tipoCompra==1){visa.recepciónInformacion(nombre, cedula, codigo, cedula, codigoPalco, nombrePalco, codigo,idPalco);}
+        else {visa.recepcionInformacionZonas(nombre, cedula,email, telefono, zona, codigo);}
         ShowPanel(visa);
     }//GEN-LAST:event_jLabel13MouseClicked
 

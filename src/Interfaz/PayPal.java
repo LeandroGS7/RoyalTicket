@@ -177,6 +177,7 @@ public class PayPal extends javax.swing.JFrame {
         this.codigo = cod;
         this.valor = valor;
         this.idPalco = idPalco;
+        this.tipoCompra=1;
         
         txtValor.setText("$ "+valor);
         txtSaludo.setText("Hola de nuevo "+nombre);
@@ -226,7 +227,7 @@ public class PayPal extends javax.swing.JFrame {
                 pst3 = con.prepareStatement(sql3);
                 int rs2= pst3.executeUpdate(); 
                 if(rs2>0){
-                    System.out.println("Disponibilidad modificada");          
+                    //System.out.println("Disponibilidad modificada");          
                     this.dispose();
                     pasarela.cerrarVentana();
                     con.close();

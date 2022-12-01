@@ -53,7 +53,7 @@ public class ComprarPalco extends javax.swing.JPanel {
     public void generarConexion(){
         try{
             con = DbConnection.ConnectionDB();
-            System.out.println("conexion restaurada");
+            //System.out.println("conexion restaurada");
         }catch(Exception e){
             System.out.println("Conexion no restaurada");
         }
@@ -341,6 +341,7 @@ public class ComprarPalco extends javax.swing.JPanel {
                             pasarela.recepciónInformacion(txtNombreCompraPalco.getText(), txtCedulaCompraPalco.getText(),
                             email,txtTelefonoCompraPalco.getText() , txtCodigoCompraPalco.getText(), rs.getString(3), codigoReserva, rs.getInt(1));
                             pasarela.setVisible(true);
+                            System.out.println("El tipo es: "+pasarela.tipoCompra);
                             limpiarCampos();
                         }
                             

@@ -36,11 +36,12 @@ public class PasarelaVisa extends javax.swing.JPanel {
     Connection con = null;
     PreparedStatement pst2 = null;
     PreparedStatement pst3 = null;
+    ComprarPalco menu = new ComprarPalco();
     
     
     public PasarelaVisa() {
         initComponents();
-        //con = DbConnection.ConnectionDB();
+        con = DbConnection.ConnectionDB();
     }
 
     public void recepciónInformacion(String nom, String ced, String correo, String tel, String codPal, String nomPal, String cod,int idPalco){
@@ -52,6 +53,8 @@ public class PasarelaVisa extends javax.swing.JPanel {
         this.nombrePalco = nomPal;
         this.codigo = cod;
         this.idPalco = idPalco;
+        
+        this.tipoCompra=1;
     }
     
     public void recepcionInformacionZonas(String nom, String ced, String correo, String tel, String zona, String codigo){
@@ -302,10 +305,14 @@ public class PasarelaVisa extends javax.swing.JPanel {
     
     
     private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
+        ServidorSMTP server = new ServidorSMTP();
+        con = DbConnection.ConnectionDB();
         
+        String mensaje;
         if(this.tipoCompra==1){
             String sql2 = "INSERT INTO entradasPalcos (nombre,cedula,email,telefono,codigoPalco,nombrePalco,codigo) VALUES (?,?,?,?,?,?,?);";
             String codigo;
+            String asunto;
             ComprarPalco cp = new ComprarPalco();
             try{
                 if(!validarCampos()) JOptionPane.showMessageDialog(null, "Llene todos los campos.");
@@ -330,7 +337,13 @@ public class PasarelaVisa extends javax.swing.JPanel {
                         pst3 = con.prepareStatement(sql3);
                         int rs2= pst3.executeUpdate(); 
                         if(rs2>0){
-                            System.out.println("Disponibilidad modificada");            
+                            //System.out.println("Disponibilidad modificada"); 
+                            con.close();
+                            menu.generarConexion();
+                            mensaje = "RoyalTicket le informa que su codigo de reserva es: "+this.codigo;
+                            asunto = "CODIGO DE RESERVA - ROYALTICKET";
+                            /*server.createEmail(email, mensaje, asunto);
+                            server.sendEmail();*/
                         }else{
                             System.out.println("No modificado");
                         }
@@ -355,6 +368,9 @@ public class PasarelaVisa extends javax.swing.JPanel {
                 pst2.setString(6, this.codigo);
                 pst2.execute();
                 JOptionPane.showMessageDialog(null, "Compra Exitosa, Su codigo de reserva es: "+this.codigo);
+                con.close();
+                menu.generarConexion();
+                //server.crearConexionSMTP(email, mensaje, asunto);
             }catch(Exception e){
                 System.out.println("Error");
             }
