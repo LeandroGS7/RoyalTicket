@@ -7,6 +7,9 @@ package Interfaz;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,22 +22,41 @@ public class ComprarPalco extends javax.swing.JPanel {
      * Creates new form ComprarPalco
      */
     
-    Connection con = null;
+    public Connection con = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
     PreparedStatement pst2 = null;
     PreparedStatement pst3 = null;
-    
+    Palcos tablero = new Palcos();
     public static String palcoSeleccionado="";
+    
     
     public void setPalcoSelected(String palco){
          palcoSeleccionado = palco;  
     }
+    
+    public void limpiarCampos(){
+        this.txtCedulaCompraPalco.setText("");
+        this.txtCodigoCompraPalco.setText("");
+        this.txtEmailCompraPalco.setText("");
+        this.txtNombreCompraPalco.setText("");
+        this.txtTelefonoCompraPalco.setText("");
+    }
+    
  
     
     public ComprarPalco() {
         initComponents();
         con = DbConnection.ConnectionDB();
+    }
+    
+    public void generarConexion(){
+        try{
+            con = DbConnection.ConnectionDB();
+            System.out.println("conexion restaurada");
+        }catch(Exception e){
+            System.out.println("Conexion no restaurada");
+        }
     }
 
     static String generarCodigoReserva(int n){
@@ -88,6 +110,7 @@ public class ComprarPalco extends javax.swing.JPanel {
         btnComprarPalco = new javax.swing.JButton();
         btnVerPalcos = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -224,6 +247,14 @@ public class ComprarPalco extends javax.swing.JPanel {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, -1, -1));
 
+        jButton2.setText("Limpiar");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -263,49 +294,99 @@ public class ComprarPalco extends javax.swing.JPanel {
         else return 0;
     }
     
+    // Patrón para validar el email
+        Pattern pattern = Pattern
+                .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+ 
+        
+ 
+        
+        
+        public boolean validarCorreo(String email){
+            Matcher mather = pattern.matcher(email);
+            if (mather.find() == true) {
+                return true;
+            } else {
+                return false;
+            }           
+        }
+        
+    
+    
     private void btnComprarPalcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarPalcoActionPerformed
+        con = DbConnection.ConnectionDB();
         String sql = "SELECT * FROM palcos WHERE codigoPalco = ?;";
+        PasarelaPagos pasarela = new PasarelaPagos();
+        String email = txtEmailCompraPalco.getText();
+        String codigoReserva = generarCodigoReserva(5);
+        
+        
         try{
+            
             if(validarCampos() == 1) JOptionPane.showMessageDialog(null, "Llene todos los campos.");
             else{
                 pst = con.prepareStatement(sql);
                 pst.setString(1, txtCodigoCompraPalco.getText());
                 rs = pst.executeQuery();
                 if(rs.next()){
-                    String sql2 = "INSERT INTO entradasPalcos (nombre,cedula,email,telefono,codigoPalco,nombrePalco,codigo) VALUES (?,?,?,?,?,?,?);";
-                    pst2 = con.prepareStatement(sql2);
-                    pst2.setString(1, txtNombreCompraPalco.getText());
-                    pst2.setString(2, txtCedulaCompraPalco.getText());
-                    pst2.setString(3, txtEmailCompraPalco.getText());
-                    pst2.setString(4, txtTelefonoCompraPalco.getText());
-                    pst2.setString(5, txtCodigoCompraPalco.getText());
-                    pst2.setString(6, rs.getString(3));
-                    String codigoReserva = generarCodigoReserva(5);
-                    pst2.setString(7, codigoReserva);
-                    String codigo = txtCodigoCompraPalco.getText();
-                    //prueba
-                    pst2.execute();          
-
-                    JOptionPane.showMessageDialog(null, "Compra Exitosa, Su codigo de reserva es: "+codigoReserva+" para palco "+rs.getString(3)+" "+codigo);
-                    String sql3="UPDATE palcos SET disponibilidad='Ocupado' WHERE id='"+rs.getInt(1)+"'";
-                    pst3 = con.prepareStatement(sql3);
-                    int rs2= pst3.executeUpdate(); 
-                    if(rs2>0){
-                        System.out.println("Disponibilidad modificada");
-                    }else{
-                        System.out.println("No modificado");
+                    if(rs.getString(4).equals("Ocupado")){
+                        JOptionPane.showMessageDialog(null, "Palco "+rs.getString(4)+" NO DISPONIBLE.");
                     }
-                    
-                    
-                con.close();
+                    else{
+                        if(!validarCorreo(txtEmailCompraPalco.getText()))
+                            JOptionPane.showMessageDialog(null, "Correo no válido");
+
+                        if(validarCorreo(txtEmailCompraPalco.getText())){
+                            pasarela.recepciónInformacion(txtNombreCompraPalco.getText(), txtCedulaCompraPalco.getText(),
+                            email,txtTelefonoCompraPalco.getText() , txtCodigoCompraPalco.getText(), rs.getString(3), codigoReserva, rs.getInt(1));
+                            pasarela.setVisible(true);
+                            limpiarCampos();
+                        }
+                            
+                            
+                            /*
+                            pst2 = con.prepareStatement(sql2);
+                            pst2.setString(1, txtNombreCompraPalco.getText());
+                            pst2.setString(2, txtCedulaCompraPalco.getText());
+                            pst2.setString(3, txtEmailCompraPalco.getText());
+                            pst2.setString(4, txtTelefonoCompraPalco.getText());
+                            pst2.setString(5, txtCodigoCompraPalco.getText());
+                            pst2.setString(6, rs.getString(3));
+                            
+                            pst2.setString(7, codigoReserva);
+                            String codigo = txtCodigoCompraPalco.getText();
+                        
+                            pst2.execute();          
+
+                            JOptionPane.showMessageDialog(null, "Compra Exitosa, Su codigo de reserva es: "+codigoReserva+" para palco "+rs.getString(3)+" "+codigo);
+                            String sql3="UPDATE palcos SET disponibilidad='Ocupado' WHERE id='"+rs.getInt(1)+"'";
+                            pst3 = con.prepareStatement(sql3);
+                            int rs2= pst3.executeUpdate(); 
+                            if(rs2>0){
+                                System.out.println("Disponibilidad modificada");
+                                
+                                //tablero.actualizarPalcos();
+                                
+                                //palcoSeleccionado.setText("-");
+                                
+                            }else{
+                                System.out.println("No modificado");
+                            }
+                        */
+                        con.close();
+                        //this.removeAll();
+                        
+                    }
                 }else{
                     JOptionPane.showMessageDialog(null, "Codigo de palco incorrecto o no disponible.");
                 }
             }
             
         }catch(Exception e){
-            System.out.println("Codigo de palco incorrecto o no disponible. "+e);
+            System.out.println("ERROR "+e);
         }
+        /**/
     }//GEN-LAST:event_btnComprarPalcoActionPerformed
 
     private void btnVerPalcosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerPalcosActionPerformed
@@ -324,11 +405,16 @@ public class ComprarPalco extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        limpiarCampos();
+    }//GEN-LAST:event_jButton2MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnComprarPalco;
     private javax.swing.JButton btnVerPalcos;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -342,10 +428,10 @@ public class ComprarPalco extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JLabel labelCedula;
-    private javax.swing.JTextField txtCedulaCompraPalco;
-    private javax.swing.JTextField txtCodigoCompraPalco;
-    private javax.swing.JTextField txtEmailCompraPalco;
-    private javax.swing.JTextField txtNombreCompraPalco;
-    private javax.swing.JTextField txtTelefonoCompraPalco;
+    public javax.swing.JTextField txtCedulaCompraPalco;
+    public javax.swing.JTextField txtCodigoCompraPalco;
+    public javax.swing.JTextField txtEmailCompraPalco;
+    public javax.swing.JTextField txtNombreCompraPalco;
+    public javax.swing.JTextField txtTelefonoCompraPalco;
     // End of variables declaration//GEN-END:variables
 }

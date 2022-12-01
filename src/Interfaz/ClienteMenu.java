@@ -181,6 +181,10 @@ public class ClienteMenu extends javax.swing.JFrame {
         content2.revalidate();
         content2.repaint();
     }
+    
+    public void actualizarPantalla(){
+        content2.removeAll();
+    }
     /**
      * @param args the command line arguments
      */
@@ -219,7 +223,7 @@ public class ClienteMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrarEntrada;
     private javax.swing.JButton btnRegistrarEntrada2;
-    private javax.swing.JPanel content2;
+    public javax.swing.JPanel content2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

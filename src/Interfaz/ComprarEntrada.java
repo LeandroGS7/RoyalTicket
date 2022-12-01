@@ -4,7 +4,10 @@
  */
 package Interfaz;
 
+import static Interfaz.ComprarPalco.generarCodigoReserva;
 import java.sql.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 /**
  *
@@ -21,7 +24,47 @@ public class ComprarEntrada extends javax.swing.JPanel {
      */
     public ComprarEntrada() {
         initComponents();
+        con = DbConnection.ConnectionDB();
     }
+    
+    public void generarConexion(){
+        try{
+            con = DbConnection.ConnectionDB();
+            System.out.println("conexion restaurada");
+        }catch(Exception e){
+            System.out.println("Conexion no restaurada");
+        }
+    }
+    
+    public int validarCampos(){
+        if(txtCedulaCompraEntrada.getText().length() == 0 || txtTelefonoCompraEntrada.getText().length() == 0 ||
+           txtEmailCompraEntrada.getText().length() == 0 || txtNombreCompraEntrada.getText().length() == 0) return 1;
+        else return 0;
+    }
+    
+    // Patrón para validar el email
+        Pattern pattern = Pattern
+                .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+ 
+        
+        public boolean validarCorreo(String email){
+            Matcher mather = pattern.matcher(email);
+            if (mather.find() == true) {
+                return true;
+            } else {
+                return false;
+            }           
+        }
+        
+        
+        public void limpiarCampos(){
+            this.txtCedulaCompraEntrada.setText("");
+            this.txtEmailCompraEntrada.setText("");
+            this.txtNombreCompraEntrada.setText("");
+            this.txtTelefonoCompraEntrada.setText("");
+            jComboBoxZona.setSelectedItem("");
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -176,7 +219,26 @@ public class ComprarEntrada extends javax.swing.JPanel {
     }//GEN-LAST:event_txtCedulaCompraEntradaActionPerformed
 
     private void btnComprarEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarEntradaActionPerformed
+        
+        PasarelaPagos pasarela = new PasarelaPagos();
+        String email = txtEmailCompraEntrada.getText();
+        String codigoReserva = generarCodigoReserva(5);
+        
+        
+        
         try{
+            if(!validarCorreo(txtEmailCompraEntrada.getText()))
+                JOptionPane.showMessageDialog(null, "Correo no válido");
+
+            if(validarCorreo(txtEmailCompraEntrada.getText())){
+                pasarela.recepcionInformacionZonas(txtNombreCompraEntrada.getText(), txtCedulaCompraEntrada.getText(),
+                email,txtTelefonoCompraEntrada.getText(),jComboBoxZona.getSelectedItem().toString(), codigoReserva);
+                pasarela.setVisible(true);
+                limpiarCampos();
+            }
+            
+            con.close();
+            /*
             con = DbConnection.ConnectionDB();
             String sql = "INSERT INTO entradaBasica (cedula, telefono, email, nombre, zona, codigo) VALUES (?,?,?,?,?,?);";
             pst = con.prepareStatement(sql);
@@ -185,11 +247,10 @@ public class ComprarEntrada extends javax.swing.JPanel {
             pst.setString(3, txtEmailCompraEntrada.getText()); 
             pst.setString(4, txtNombreCompraEntrada.getText());
             pst.setString(5, jComboBoxZona.getSelectedItem().toString());
-            String codigoReserva = generarCodigoReserva(5);
             pst.setString(6, codigoReserva);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Compra Exitosa, Su codigo de reserva es: "+codigoReserva);
-            con.close();
+            con.close();*/
         }catch(Exception e){
             System.out.println("Baneo fallido "+e);
         }
